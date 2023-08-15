@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import * as ProfilesAPI from './../../utilities/api/profiles-api';
+
 // Style Imports
 import {
   Container,
@@ -26,8 +28,6 @@ export default function ProfileForm({ user }) {
     bio: '',
   });
 
-  console.log(user)
-
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     const fieldValue = type === 'checkbox' ? checked : value;
@@ -38,9 +38,14 @@ export default function ProfileForm({ user }) {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Do something with the formData, e.g., send it to the server
+    try {
+      await ProfilesAPI.createProfile(formData);
+    } catch (err) {
+      console.log(err);
+    }
     console.log(formData);
   };
   
