@@ -8,3 +8,5 @@ With "ayym," budgeting becomes an adventure, and saving transforms into a reward
 
 This project is built for the General Assembly 2023 Hackathon Q3
 
+## Future Features
+Add other currencies
