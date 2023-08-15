@@ -33,7 +33,7 @@ export default function GoalForm({ onSubmit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(formData);
+    console.log(formData);
     setFormData({
       title: '',
       targetAmount: '',
