@@ -1,4 +1,9 @@
 import React, { useState } from 'react';
+// API Imports
+import * as expensesApi from '../../utilities/api/expenses-api';
+
+
+
 
 // Style Imports
 import {
@@ -41,10 +46,14 @@ export default function ExpenseForm({ user }) {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Do something with the formData, e.g., send it to the server
-    console.log(formData);
+    try {
+      await expensesApi.createExpense(formData);
+    } catch (error) {
+      console.error('There was an error at createExpense', error);
+    }
   };
   
   return (
