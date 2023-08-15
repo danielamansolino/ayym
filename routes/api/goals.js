@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const goalCtrl = require('../../controllers/api/goal');
+const goalCtrl = require('../../controllers/api/goals');
 
 // All paths start with '/api/goals'
 

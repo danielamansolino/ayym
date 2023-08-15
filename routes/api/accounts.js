@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const accountCtrl = require('../../controllers/api/account');
+const accountCtrl = require('../../controllers/api/accounts');
 
 // All paths start with '/api/accounts'
 
