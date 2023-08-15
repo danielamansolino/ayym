@@ -9,8 +9,17 @@ module.exports = {
 };
 
 async function create(req, res) {
+  
   try {
-    const account = await Account.create({ ...req.body, user: req.user._id });
+    const account = new Account({
+      user: req.body.user,
+      type: req.body.type,
+      balance: req.body.balance,
+      isPrimary: req.body.isPrimary,
+      expense: req.body.expense || null,
+      income: req.body.income || null
+    });
+    await account.save();
     res.status(201).json(account);
   } catch (err) {
     res.status(400).json(err);

@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { getUser } from "./services/users-service";
+import { getUser } from "./users-service";
 
 // Import gets here
 
@@ -23,7 +23,6 @@ export const DataProvider = (props) => {
   // }, [activeAccount]);
   
   const fetchData = async () => {
-    
     try {
       const user = await getUser();
       setUser(user);

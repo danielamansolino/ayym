@@ -20,6 +20,8 @@ export default function AccountForm({ user }) {
     type: '',
     balance: 0,
     isPrimary: false,
+    expense: null,
+    income: null,
   });
 
   console.log(user)
@@ -64,7 +66,7 @@ export default function AccountForm({ user }) {
       <FormGroup>
         <Label>Balance</Label>
         <Input
-          type="text"
+          type="number"
           name="balance"
           value={formData.balance}
           onChange={handleChange}
