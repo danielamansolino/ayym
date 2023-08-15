@@ -1,22 +1,22 @@
 import sendRequest from "../send-request";
-const BASE_URL = '/api/incomes'; // Adjust the URL to match your endpoint
+const BASE_URL = '/api/goals'; // Adjust the URL to match your endpoint
 
-export async function createIncome(incomeData) {
-  return sendRequest(BASE_URL, 'POST', incomeData);
+export async function createGoals(formData) {
+  return sendRequest(BASE_URL, 'POST', formData);
 }
 
-export async function updateIncome(incomeId, incomeData) {
-  return sendRequest(`${BASE_URL}/${incomeId}`, 'PUT', incomeData);
+export async function updateGoals(formId, formData) {
+  return sendRequest(`${BASE_URL}/${formId}`, 'PUT', formData);
 }
 
-export async function deleteIncome(incomeId) {
-  return sendRequest(`${BASE_URL}/${incomeId}`, 'DELETE');
+export async function deleteGoals(formId) {
+  return sendRequest(`${BASE_URL}/${formId}`, 'DELETE');
 }
 
-export async function listIncomes() {
+export async function listGoals() {
   return sendRequest(BASE_URL, 'GET');
 }
 
-export async function getIncome(incomeId) {
-  return sendRequest(`${BASE_URL}/${incomeId}`, 'GET');
+export async function getGoals(formId) {
+  return sendRequest(`${BASE_URL}/${formId}`, 'GET');
 }
