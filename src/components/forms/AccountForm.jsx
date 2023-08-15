@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+// API Imports
+import * as accountsApi from '../../utilities/api/accounts-api';
+
 // Style Imports
 import {
   Container,
@@ -31,10 +34,16 @@ export default function AccountForm({ user }) {
     });
   };
 
-  const handleSubmit = (e) => {
+  // Async function to create the new account
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Do something with the formData, e.g., send it to the server
+    // Do something with the formData, e.g., send it to the server or console.log test
     console.log(formData);
+    try {
+      await accountsApi.createAccount(formData);
+    } catch (error) {
+      console.error('There was an error at createAccount', error);
+    }
   };
   
   return (

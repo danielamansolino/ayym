@@ -4,6 +4,9 @@ import React from 'react';
 import Transaction from '../Transaction/Transaction';
 import ProfileForm from '../forms/ProfileForm';
 import AccountForm from '../forms/AccountForm';
+import GoalForm from '../forms/GoalForm';
+import ExpenseForm from '../forms/ExpenseForm';
+import IncomeForm from '../forms/IncomeForm';
 
 // Style Imports
 import './Account.css';
@@ -21,6 +24,9 @@ export default function Account({ user }) {
 
   return (
     <>
+    <IncomeForm user={user} />
+    <ExpenseForm user={user} />
+    <GoalForm user={user} />
     <AccountForm user={user} />
     <ProfileForm user={user} />
     <Container>

@@ -10,11 +10,18 @@ import {
   Input,
 } from 'reactstrap';
 
+// Create a function to format the date as "YYYY-MM-DD"
+function formatDate(date) {
+  const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+  return new Date(date).toLocaleDateString(undefined, options);
+}
+
 export default function IncomeForm({ user }) {
 
   const [formData, setFormData] = useState({
     user: user._id ? user._id : '',
-    source: '',
+    type: '',
+    recurring: false,
     amount: 0,
     date: '',
   });
@@ -42,10 +49,10 @@ export default function IncomeForm({ user }) {
     <Form onSubmit={handleSubmit}>
 
       <FormGroup>
-        <Label>Source</Label>
+        <Label>Type</Label>
         <Input
           type="text"
-          name="source"
+          name="type"
           value={formData.type}
           onChange={handleChange}
           required
@@ -55,8 +62,8 @@ export default function IncomeForm({ user }) {
       <FormGroup>
         <Label>Amount</Label>
         <Input
-          type="text"
-          name="balance"
+          type="number"
+          name="amount"
           value={formData.amount}
           onChange={handleChange}
           required
@@ -64,11 +71,25 @@ export default function IncomeForm({ user }) {
       </FormGroup>
 
       <FormGroup>
-        <Label>Date</Label>
+          <Label>Date</Label>
+          <Input
+            type="date"
+            name="date"
+            value={formData.date}
+            onChange={handleChange}
+            required
+          />
+          {formData.startDate && (
+            <p>Formatted Date: {formatDate(formData.date)}</p>
+          )}
+        </FormGroup>
+
+        <FormGroup>
+        <Label>Recurring</Label>
         <Input
-          type="text"
-          name="date"
-          value={formData.date}
+          type="checkbox"
+          name="recurring"
+          value={formData.recurring}
           onChange={handleChange}
         />
       </FormGroup>
