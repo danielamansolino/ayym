@@ -41,7 +41,7 @@ export default function NavBar({ user, setUser }) {
 
     <div>
     <Navbar expand="md" >
-      <NavbarBrand href="/">reactstrap</NavbarBrand>
+      <NavbarBrand href="/">Ayym</NavbarBrand>
       <NavbarToggler onClick={toggle} />
       <Collapse isOpen={isOpen} navbar>
         <Nav className="me-auto" navbar>
