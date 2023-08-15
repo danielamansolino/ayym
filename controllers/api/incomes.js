@@ -9,6 +9,8 @@ module.exports = {
 };
 
 async function create(req, res) {
+  console.log(req.body, '<-- req.body')
+  console.log(req.user, '<-- req.user')
   try {
     const income = await Income.create({ ...req.body, user: req.user._id });
     res.status(201).json(income);
