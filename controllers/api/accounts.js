@@ -1,4 +1,5 @@
 const Account = require('../../models/account');
+const User = require('../../models/user');
 
 module.exports = {
   create,
@@ -6,10 +7,20 @@ module.exports = {
   delete: deleteAccount,
   index,
   show,
+  showUserAccounts,
 };
 
+async function showUserAccounts(req, res) {
+  console.log('showAccounts req.params.id', req.params.id)
+  try {
+    const accounts = await Account.find({ user: req.params.id });
+    res.json(accounts);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+}
+
 async function create(req, res) {
-  
   try {
     const account = new Account({
       user: req.body.user,
@@ -47,11 +58,14 @@ async function deleteAccount(req, res) {
 async function index(req, res) {
   try {
     const accounts = await Account.find({ user: req.user._id });
+    console.log('Found accounts:', accounts);
     res.json(accounts);
   } catch (err) {
+    console.error('Error fetching accounts:', err);
     res.status(400).json(err);
   }
 }
+
 
 async function show(req, res) {
   try {

@@ -26,7 +26,7 @@ export default function Transaction() {
         <Col>
         This is an example of a transaction
         <Card className="horizontal-card">
-        <Row noGutters>
+        <Row>
           <Col>
             <CardBody>
               Date goes here
