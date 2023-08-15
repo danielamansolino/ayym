@@ -2,6 +2,7 @@ import sendRequest from "../send-request";
 const BASE_URL = '/api/incomes'; // Adjust the URL to match your endpoint
 
 export async function createIncome(incomeData) {
+  console.log(incomeData, '<---- income data')
   return sendRequest(BASE_URL, 'POST', incomeData);
 }
 
