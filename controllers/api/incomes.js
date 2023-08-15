@@ -9,21 +9,9 @@ module.exports = {
 };
 
 async function create(req, res) {
-  console.log(req.body, '<-- req.body')
-  console.log(req.user, '<-- req.user')
   try {
-    const incomes = new Income({
-      user: req.body.user,
-      type: req.body.type,
-      amount: req.body.amount,
-      recurring: req.body.recurring,
-      date: req.body.date,
-      description: req.body.description
-    })  
-    console.log(req.body, '<-- req.body')
-    console.log(req.user, '<-- req.user');
-    await account.save();
-    res.status(201).json(account);
+    const income = await Income.create({ ...req.body, user: req.user._id });
+    res.status(201).json(income);
   } catch (err) {
     res.status(400).json(err);
   }

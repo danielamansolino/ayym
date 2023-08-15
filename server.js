@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 // Middleware to verify token and assign user object of payload to req.user. Mount before
 app.use(require('./config/checkToken'));
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 // Put API routes here, before the "catch all" route
 app.use('/api/users', require('./routes/api/users'));
