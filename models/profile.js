@@ -15,7 +15,6 @@ const profileSchema = new Schema({
 
   location: { type: String, required: true }, // Location of the user
   bio: { type: String }, // Bio of the user
-  socialMedia: { type: String }, // Social media of the user, DO WE WANT THIS?
 
 }, {
   timestamps: true
