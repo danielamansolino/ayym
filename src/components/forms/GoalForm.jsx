@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import * as GoalsAPI from './../../utilities/api/goals-api';
 import {
   Container,
   Form,
@@ -31,9 +32,28 @@ export default function GoalForm({ onSubmit }) {
     });
   };
 
-  const handleSubmit = (e) => {
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     console.log(formData);
+//     setFormData({
+//       title: '',
+//       targetAmount: '',
+//       startDate: '',
+//       endDate: '',
+//     });
+//   };
+
+const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    // Do something with the formData, e.g., send it to the server
+    try {
+      await GoalsAPI.createGoals(formData); // Replace with the actual API method you're using
+      console.log('Data submitted successfully', formData);
+    } catch (err) {
+      console.log(err);
+    }
+    
+    // Clear form data
     setFormData({
       title: '',
       targetAmount: '',
