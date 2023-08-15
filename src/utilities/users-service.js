@@ -36,6 +36,7 @@ export function getToken() {
   //   localStorage.removeItem('token');
   //   return null;
   // }
+  // console.log(token)
   return token;
 }
 

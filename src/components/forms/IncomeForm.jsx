@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-
+import { useNavigate, Link } from "react-router-dom";
+import * as incomesApi from './../../utilities/api/incomes-api'
 // Style Imports
 import {
   Container,
@@ -38,10 +39,15 @@ export default function IncomeForm({ user }) {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Do something with the formData, e.g., send it to the server
+    // Do something with the formData, e.g., send it to the server or console.log test
     console.log(formData);
+    try {
+      await incomesApi.createIncome(formData);
+    } catch (error) {
+      console.error('There was an error at createAccount', error);
+    }
   };
   
   return (

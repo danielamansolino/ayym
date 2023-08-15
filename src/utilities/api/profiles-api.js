@@ -9,7 +9,7 @@ export async function updateProfile(profileData) {
   return sendRequest(BASE_URL, 'PUT', profileData);
 }
 
-export async function getProfile() {
+export async function getProfileForUser() {
   return sendRequest(BASE_URL, 'GET');
 }
 

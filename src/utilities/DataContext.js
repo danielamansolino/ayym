@@ -1,13 +1,15 @@
 import { createContext, useEffect, useState } from "react";
 import { getUser } from "./users-service";
 
-// Import gets here
+import { getProfileForUser } from "./api/profiles-api";
+import { getAccountsForUser } from "./api/accounts-api";
 
 export const DataContext = createContext();
 
 export const DataProvider = (props) => {
   const [user, setUser] = useState(null);
-  const [activeAccount, setActiveAccount] = useState(null);
+  const [activeAccounts, setActiveAccounts] = useState(null);
+  const [activeProfile, setActiveProfile] = useState(null);
   // Set active items here like accounts, transactions, etc..
 
 
@@ -15,18 +17,19 @@ export const DataProvider = (props) => {
     fetchData();
   }, []);
 
-  // Will fetch data here for active selection, could be accounts, user, income, expense. NOT NECESSARY
-  // useEffect(() => {
-  //   if (activeAccount) {
-  //     fetchAccountDetails(activeAccount._id);
-  //   }
-  // }, [activeAccount]);
+  // Will fetch data here for active selection, could be accounts, user, income, expense
+  useEffect(() => {
+    if (activeProfile) {
+      fetchAccountDetails();
+    }
+  }, [activeProfile]);
   
   const fetchData = async () => {
     try {
       const user = await getUser();
       setUser(user);
-
+      const profile = await getProfileForUser();
+      setActiveProfile(profile);
     } catch (err) {
       console.log('Error at DataContext.js fetchData', err);
     }
@@ -35,20 +38,21 @@ export const DataProvider = (props) => {
   // This could be where we fetch all data for the user and store in a context file that can be used everywhere
   const fetchAccountDetails = async () => {
     try {
-      // Will need to create this API request
-      // const accounts = await getAccountsForUser(activeAccount._id);
-      // setActiveAccount(accounts);
-
+      const accounts = await getAccountsForUser();
+      setActiveAccounts(accounts);
     } catch (err) {
       console.log('Error at DataContext.js fetchAccountDetails', err);
     }
   };
 
+  // console.log('activeAccounts', activeAccounts)
+  // console.log('activeProfile', activeProfile)
+
   return (
     <DataContext.Provider
       value={{
-        activeAccount: activeAccount || [],
-        setActiveAccount,
+        activeAccounts: activeAccounts || [],
+        setActiveAccounts,
       }}
     >
       {props.children}

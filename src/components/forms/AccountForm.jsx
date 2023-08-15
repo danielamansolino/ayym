@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 // API Imports
 import * as accountsApi from '../../utilities/api/accounts-api';
@@ -12,9 +12,9 @@ import {
   Button,
   Input,
 } from 'reactstrap';
+import { async } from 'q';
 
 export default function AccountForm({ user }) {
-
   const [formData, setFormData] = useState({
     user: user._id ? user._id : '',
     type: '',
@@ -23,8 +23,6 @@ export default function AccountForm({ user }) {
     expense: null,
     income: null,
   });
-
-  console.log(user)
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
