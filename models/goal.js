@@ -10,4 +10,4 @@ const goalSchema = new Schema({
   timestamps: true
 });
 
-module.exports = mongoose.model('Expense', goalSchema);
+module.exports = mongoose.model('Goal', goalSchema);
