@@ -10,14 +10,20 @@ import {
   Input,
 } from 'reactstrap';
 
+// Create a function to format the date as "YYYY-MM-DD"
+function formatDate(date) {
+  const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+  return new Date(date).toLocaleDateString(undefined, options);
+}
+
 export default function ExpenseForm({ user }) {
   const [formData, setFormData] = useState({
     user: user._id ? user._id : '',
     type: '',
     category: '',
     amount: '',
-    recurring: '',
-    paid: '',
+    recurring: false,
+    paid: false,
     paymentMethod: '',
     date: '',
     description: '',
@@ -81,18 +87,17 @@ export default function ExpenseForm({ user }) {
       <FormGroup>
         <Label>Recurring</Label>
         <Input
-          type="text"
+          type="checkbox"
           name="recurring"
           value={formData.recurring}
           onChange={handleChange}
-          required
         />
       </FormGroup>
 
       <FormGroup>
         <Label>Paid</Label>
         <Input
-          type="text"
+          type="checkbox"
           name="paid"
           value={formData.paid}
           onChange={handleChange}
@@ -110,14 +115,18 @@ export default function ExpenseForm({ user }) {
       </FormGroup>
 
       <FormGroup>
-        <Label>Date</Label>
-        <Input
-          type="text"
-          name="date"
-          value={formData.date}
-          onChange={handleChange}
-        />
-      </FormGroup>
+      <Label>Date</Label>
+          <Input
+            type="date"
+            name="date"
+            value={formData.date}
+            onChange={handleChange}
+            required
+          />
+          {formData.startDate && (
+            <p>Formatted Date: {formatDate(formData.date)}</p>
+          )}
+        </FormGroup>
 
       <FormGroup>
         <Label>Description</Label>
