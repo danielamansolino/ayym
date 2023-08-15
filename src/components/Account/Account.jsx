@@ -3,6 +3,7 @@ import React from 'react';
 // Component Import
 import Transaction from '../Transaction/Transaction';
 import ProfileForm from '../forms/ProfileForm';
+import AccountForm from '../forms/AccountForm';
 
 // Style Imports
 import './Account.css';
@@ -20,6 +21,7 @@ export default function Account({ user }) {
 
   return (
     <>
+    <AccountForm user={user} />
     <ProfileForm user={user} />
     <Container>
     <div>This is the Account Component</div>
