@@ -12,7 +12,6 @@ export const DataProvider = (props) => {
   const [activeProfile, setActiveProfile] = useState(null);
   // Set active items here like accounts, transactions, etc..
 
-
   useEffect(() => {
     fetchData();
   }, []);
@@ -34,7 +33,7 @@ export const DataProvider = (props) => {
       console.log('Error at DataContext.js fetchData', err);
     }
   };
-      
+
   // This could be where we fetch all data for the user and store in a context file that can be used everywhere
   const fetchAccountDetails = async () => {
     try {
