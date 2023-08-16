@@ -12,7 +12,6 @@ import {
   Button,
   Input,
 } from 'reactstrap';
-import { async } from 'q';
 
 export default function AccountForm({ user }) {
   const [formData, setFormData] = useState({
