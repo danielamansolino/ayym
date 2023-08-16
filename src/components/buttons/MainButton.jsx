@@ -9,7 +9,8 @@ export default function MainButton({ color, text, click }) {
       <Button
         style={{ margin:'3px'}}
         color={color ? color : 'success'}
-        onClick={click}>{text ? text : 'No Text'}
+        onClick={click}>
+        {text ? text : 'No Text'}
       </Button>
     </>
   )

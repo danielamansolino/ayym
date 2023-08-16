@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from "react-router-dom";
 import * as incomesApi from './../../utilities/api/incomes-api'
+
+import MainButton from './../../components/buttons/MainButton';
+
 // Style Imports
 import {
   Container,
@@ -17,7 +19,7 @@ function formatDate(date) {
   return new Date(date).toLocaleDateString(undefined, options);
 }
 
-export default function IncomeForm({ user }) {
+export default function IncomeForm({ user, step, setStep }) {
 
   const [formData, setFormData] = useState({
     user: user._id ? user._id : '',
@@ -26,8 +28,6 @@ export default function IncomeForm({ user }) {
     amount: 0,
     date: '',
   });
-
-  console.log(user)
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -48,6 +48,7 @@ export default function IncomeForm({ user }) {
     } catch (error) {
       console.error('There was an error at createAccount', error);
     }
+    setStep(step + 1)
   };
   
   return (
@@ -100,9 +101,7 @@ export default function IncomeForm({ user }) {
         />
       </FormGroup>
       
-      <Button variant="primary" type="submit">
-        Save
-      </Button>
+      <MainButton text={'Continue'} click={handleSubmit}></MainButton>
     </Form>
   </Container>
   )

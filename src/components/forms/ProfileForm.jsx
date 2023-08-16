@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import * as ProfilesAPI from './../../utilities/api/profiles-api';
 import * as BudgetsAPI from './../../utilities/api/budgets-api';
 
+import MainButton from './../../components/buttons/MainButton';
+
 // Style Imports
 import {
   Container,
@@ -139,9 +141,7 @@ export default function ProfileForm({ user }) {
       </FormGroup>
 
       
-      <Button variant="primary" type="submit">
-        Save
-      </Button>
+      <MainButton text={'Continue'} click={handleSubmit}></MainButton>
     </Form>
   </Container>
   )
