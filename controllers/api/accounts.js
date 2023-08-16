@@ -66,7 +66,6 @@ async function index(req, res) {
   }
 }
 
-
 async function show(req, res) {
   try {
     const account = await Account.findOne({ _id: req.params.id, user: req.user._id });

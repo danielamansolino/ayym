@@ -29,6 +29,7 @@ app.use('/api/goals', require('./routes/api/goals'));
 app.use('/api/incomes', require('./routes/api/incomes'));
 app.use('/api/accounts', require('./routes/api/accounts'));
 app.use('/api/profiles', require('./routes/api/profiles'));
+app.use('/api/budgets', require('./routes/api/budgets'));
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX/API requests

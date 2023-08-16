@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import * as ProfilesAPI from './../../utilities/api/profiles-api';
+import * as BudgetsAPI from './../../utilities/api/budgets-api';
 
 // Style Imports
 import {
@@ -28,10 +29,18 @@ export default function ProfileForm({ user }) {
     bio: '',
   });
 
-  const handleChange = (e) => {
+  const [budgetData, setBudgetData] = useState({
+    user: user._id ? user._id : '',
+    monthlyBudget: 0,
+  });
+
+    const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     const fieldValue = type === 'checkbox' ? checked : value;
-
+    setBudgetData({
+      ...budgetData,
+      [name]: fieldValue,
+    });
     setFormData({
       ...formData,
       [name]: fieldValue,
@@ -43,6 +52,7 @@ export default function ProfileForm({ user }) {
     // Do something with the formData, e.g., send it to the server
     try {
       await ProfilesAPI.createProfile(formData);
+      await BudgetsAPI.createBudget(budgetData);
     } catch (err) {
       console.log(err);
     }
@@ -70,6 +80,17 @@ export default function ProfileForm({ user }) {
           type="text"
           name="lastName"
           value={formData.lastName}
+          onChange={handleChange}
+          required
+        />
+      </FormGroup>
+
+      <FormGroup>
+        <Label>Monthly Budget</Label>
+        <Input
+          type="number"
+          name="monthlyBudget"
+          value={budgetData.monthlyBudget}
           onChange={handleChange}
           required
         />
