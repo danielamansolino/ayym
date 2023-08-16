@@ -28,6 +28,9 @@ export default function Budget() {
 
   return (
     <Container>
+      {budget.map(budget => (
+        <div key={budget.id}>{budget.monthlyBudget}</div>
+      ))}
       <MonthlyBudgetAvailable budget={budget} />
       <MonthlySpending />
       <MonthlyBudget budget={budget} />

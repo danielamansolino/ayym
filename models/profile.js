@@ -17,7 +17,6 @@ const profileSchema = new Schema({
 
   location: { type: String, required: true }, // Location of the user
   bio: { type: String }, // Bio of the user
-
 }, {
   timestamps: true
 });

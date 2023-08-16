@@ -33,7 +33,7 @@ export default function AuthPage({ setUser }) {
           <br />
           <h4>Your ticket to financial success!</h4>
           <a href="https://imgur.com/CLCmr7K.png" target="_blank" rel="noopener noreferrer">
-           <img src="https://imgur.com/CLCmr7K.png" alt="Image Ayym" className="app-image" />
+          <img src="https://imgur.com/CLCmr7K.png" alt="Image Ayym" className="app-image" />
           </a>
           <br />
           <br />
