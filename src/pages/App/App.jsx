@@ -6,9 +6,11 @@ import './App.css';
 // Page Imports
 import AuthPage from '../AuthPage/AuthPage';
 import NavBar from '../../components/NavBar/NavBar';
+import About from '../About/About';
 
 // Component Imports in test
 import Account from '../../components/Account/Account';
+import Budget from '../../components/Budget/Budget';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -20,6 +22,8 @@ export default function App() {
             <NavBar user={user} setUser={setUser} />
             <Routes>
               <Route path="/" element={<Account user={user} />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/budget" element={<Budget user={user} />} />
             </Routes>
           </>
           :
