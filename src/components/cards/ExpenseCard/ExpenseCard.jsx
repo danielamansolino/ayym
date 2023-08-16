@@ -15,7 +15,7 @@ import {
   } from 'reactstrap';
 
 // Need to import account, expense, income, user?
-export default function ExpenseCard() {
+export default function ExpenseCard({ budget }) {
 
     // Need to take in a expense object, either income or expense and display the information
   
