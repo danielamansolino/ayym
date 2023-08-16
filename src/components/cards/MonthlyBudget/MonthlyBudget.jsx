@@ -10,7 +10,7 @@ import {
   Button,
 } from 'reactstrap';
 
-export default function MonthlyBudget({ budget }) {
+export default function MonthlyBudget({ budget, setStep }) {
   const [activeBudget, setActiveBudget] = useState(null)
 
   useEffect(() => {

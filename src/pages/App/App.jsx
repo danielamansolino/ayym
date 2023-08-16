@@ -7,6 +7,9 @@ import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
 import NavBar from '../../components/NavBar/NavBar';
 import About from '../About/About';
+import GettingStarted from '../GettingStarted/GettingStarted';
+import ExpensePage from '../ExpensePage/ExpensePage';
+
 
 // Component Imports in test
 import Account from '../../components/Account/Account';
@@ -23,9 +26,10 @@ export default function App() {
             <NavBar user={user} setUser={setUser} />
             <Routes>
               <Route path="/" element={<Account user={user} />} />
+              <Route path="/start" element={<GettingStarted user={user} />} />
               <Route path="/about" element={<About />} />
               <Route path="/budget" element={<Budget user={user} />} />
-              <Route path="/expenses" element={<ExpensePage user={user} />} />
+              <Route path="/expense" element={<ExpensePage user={user} />} />
             </Routes>
           </>
           :

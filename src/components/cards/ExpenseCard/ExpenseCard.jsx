@@ -25,7 +25,6 @@ export default function ExpenseCard({ budget }) {
       <Container className="ExpenseCardContainer">
         <Row>
           <Col>
-          This is an example of a expense
           <Card className="horizontal-card">
           <Row>
             <Col>
