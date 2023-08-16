@@ -10,6 +10,6 @@ export async function updateBudget(budgetId, budgetData) {
   return sendRequest(`${BASE_URL}/${budgetId}`, 'PUT', budgetData);
 }
 
-export async function getBudget(formId) {
+export async function getBudget() {
   return sendRequest(`${BASE_URL}`, 'GET');
 }

@@ -14,10 +14,10 @@ export async function deleteIncome(incomeId) {
   return sendRequest(`${BASE_URL}/${incomeId}`, 'DELETE');
 }
 
-export async function listIncomes() {
+export async function getIncomes() {
   return sendRequest(BASE_URL, 'GET');
 }
 
-export async function getIncome(incomeId) {
+export async function getIncomeById(incomeId) {
   return sendRequest(`${BASE_URL}/${incomeId}`, 'GET');
 }
