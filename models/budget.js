@@ -2,11 +2,13 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const categorySchema = new Schema({
-  name: { type: String, required: true },
-  subCategory: { type: String },
-  amount: { type: Number, required: true, default: 0 },
-}, {
-  timestamps: true
+  type: {
+    type: String,
+    enum: ['Transportation', 'Bills', 'Services', 'Cash', 'Check', 'Clothing', 'CreditCard'],
+    required: true,
+  },
+  subCategory: String,
+  amount: { type: Number, required: true },
 });
 
 const budgetSchema = new Schema({

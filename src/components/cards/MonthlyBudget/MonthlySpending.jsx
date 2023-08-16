@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-import * as BudgetsAPI from '../../utilities/api/budgets-api';
-
 // Style Imports
 import {
   Container,
@@ -12,26 +10,30 @@ import {
   Button,
 } from 'reactstrap';
 
-export default function Budget() {
-  const [budget, setBudget] = useState([]);
+export default function MonthlySpending({ budget }) {
+  const [activeBudget, setActiveBudget] = useState(null)
 
   useEffect(() => {
-    BudgetsAPI.getBudget()
-      .then(budgets => setBudget(budgets))
-      .catch(error => console.error(error));
-  }, []);
+    setActiveBudget(budget)
+  }, [budget])
 
-  const handleEdit = () => {
-    console.log('Edit Budget');
-  }
 
   return (
     <Container>
-  <p>Some sort of chart here</p>
       <Card>
-        <CardTitle>Montly Spending</CardTitle>
+        <CardTitle>Monthly Spending</CardTitle>
         <CardBody>
-          <p>Monthly Spending by category</p>
+          { budget ? budget.map((b) =>
+          <div key={budget._id}>
+            <p>{b.monthlyBudget}</p>
+          </div>
+          ) : 
+          <div>
+            <p>Cash</p>
+            <p>Card</p>
+            <p>Transportation</p>
+            <p>Bills</p>
+          </div> }
         </CardBody>
       </Card>
     </Container>

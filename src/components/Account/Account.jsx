@@ -7,6 +7,7 @@ import AccountForm from '../forms/AccountForm';
 import GoalForm from '../forms/GoalForm';
 import ExpenseForm from '../forms/ExpenseForm';
 import IncomeForm from '../forms/IncomeForm';
+import IncomeCard from '../cards/IncomeCard/IncomeCard';
 
 // Style Imports
 import './Account.css';
@@ -24,6 +25,7 @@ export default function Account({ user }) {
 
   return (
     <>
+    <IncomeCard />
     <IncomeForm user={user} />
     <ExpenseForm user={user} />
     <GoalForm user={user} />

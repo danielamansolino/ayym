@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react';
 
 import * as BudgetsAPI from '../../utilities/api/budgets-api';
 
+// Component Imports
+import MonthlyBudget from '../cards/MonthlyBudget/MonthlyBudget';
+import MonthlySpending from '../cards/MonthlyBudget/MonthlySpending';
+import MonthlyBudgetAvailable from '../cards/MonthlyBudget/MonthlyBudgetAvailable';
+
 // Style Imports
 import {
   Container,
@@ -17,36 +22,15 @@ export default function Budget() {
 
   useEffect(() => {
     BudgetsAPI.getBudget()
-      .then(budgets => setBudget(budgets))
+      .then(res => setBudget(res))
       .catch(error => console.error(error));
   }, []);
 
-  const handleEdit = () => {
-    console.log('Edit Budget');
-  }
-
   return (
     <Container>
-  <p>Some sort of chart here</p>
-      <Card>
-        <CardTitle>Montly Spending</CardTitle>
-        <CardBody>
-          <p>Monthly Spending by category</p>
-        </CardBody>
-      </Card>
-      <Card>
-        <CardTitle>Monthly Budget</CardTitle>
-        <CardBody>
-          { budget ? budget.map(budget => (
-            <div key={budget.id}>
-              <p>{budget.monthlyBudget}</p>
-            </div>
-          )) : <p>No Budget Created</p> }
-        </CardBody>
-        <CardFooter>
-          <Button onClick={handleEdit}>Edit</Button>
-        </CardFooter>
-      </Card>
+      <MonthlyBudgetAvailable budget={budget} />
+      <MonthlySpending />
+      <MonthlyBudget budget={budget} />
     </Container>
   )
 }
