@@ -23,7 +23,6 @@ export default function IncomeForm({ user, step, setStep }) {
   const [formData, setFormData] = useState({
     user: user._id ? user._id : '',
     type: '',
-    recurring: false,
     amount: 0,
   });
 

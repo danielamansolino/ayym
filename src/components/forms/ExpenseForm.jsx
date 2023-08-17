@@ -1,11 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 // API Imports
 import * as expensesApi from '../../utilities/api/expenses-api';
 
-import SelectExpense from '../../components/forms/SelectExpense'
-import MainButton from '../../components/buttons/MainButton';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+
 
 
 // Style Imports
@@ -24,9 +21,7 @@ function formatDate(date) {
   return new Date(date).toLocaleDateString(undefined, options);
 }
 
-export default function ExpenseForm({ user, hideForm }) {
-  const [show, setShow] = useState(true);
-  const [activeSelection, setActiveSelection] = useState(null);
+export default function ExpenseForm({ user }) {
   const [formData, setFormData] = useState({
     user: user._id ? user._id : '',
     category: '',
@@ -35,20 +30,8 @@ export default function ExpenseForm({ user, hideForm }) {
     date: '',
     description: '',
   });
-  const categoryOptions = ["Bills", "Personal", "Transport",  "Housing","Food",
-  "Other"];
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    if (activeSelection) {
-      setFormData({
-        ...formData,
-        category: activeSelection,
-      });
-      setShow(false);
-    }
-    if (!hideForm) {setShow(false)};
-  }, [activeSelection, setShow]);
+  console.log(user)
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -68,20 +51,13 @@ export default function ExpenseForm({ user, hideForm }) {
     } catch (error) {
       console.error('There was an error at createExpense', error);
     }
-    navigate('/')
   };
-
+  
   return (
-    <div className='form-container'>
-    { show ?
-      <div className='form-container'>
-        <SelectExpense setShow={setShow} setActiveSelection={setActiveSelection} />
-      </div>
-      :
-      <Form onSubmit={handleSubmit}>
-      {/* <SelectExpense setShow={setShow} setActiveSelection={setActiveSelection} /> */}
+    <Container>
+    <Form onSubmit={handleSubmit}>
 
-      <FormGroup>
+        <FormGroup>
         <Label>Category</Label>
         <Input
           type="select"
@@ -90,72 +66,85 @@ export default function ExpenseForm({ user, hideForm }) {
           onChange={handleChange}
           required
         >
-          <option disabled>Select a category</option>
-            {categoryOptions.map(option => (
-              <option key={option} value={option} >{option}</option>
-            ))}
+          <option value="">Select a category</option>
+          {['Bills', 'Personal', 'Transport', 'Housing', 'Food', 'Other'].map((category) => (
+            <option key={category} value={category}>
+              {category}
+            </option>
+          ))}
         </Input>
       </FormGroup>
 
-        <FormGroup>
-          <Label>Amount</Label>
+      <FormGroup>
+        <Label>Amount</Label>
+        <Input
+          type="number"
+          name="amount"
+          value={formData.amount}
+          onChange={handleChange}
+          required
+        />
+      </FormGroup>
+
+      {/* <FormGroup>
+        <Label>Recurring</Label>
+        <Input
+          type="checkbox"
+          name="recurring"
+          value={formData.recurring}
+          onChange={handleChange}
+        />
+      </FormGroup> 
+
+      <FormGroup>
+        <Label>Paid</Label>
+        <Input
+          type="checkbox"
+          name="paid"
+          value={formData.paid}
+          onChange={handleChange}
+        />
+      </FormGroup> */}
+
+      <FormGroup>
+        <Label>Payment Method</Label>
+        <Input
+          type="text"
+          name="paymentMethod"
+          value={formData.paymentMethod}
+          onChange={handleChange}
+        />
+      </FormGroup>
+
+      <FormGroup>
+      <Label>Date</Label>
           <Input
-            type="number"
-            name="amount"
-            value={formData.amount}
+            type="date"
+            name="date"
+            value={formData.date}
             onChange={handleChange}
             required
           />
+          {formData.date && (
+            <p>Formatted Date: {formatDate(formData.date)}</p>
+          )}
         </FormGroup>
 
-        <FormGroup>
-          <Label>Payment Method</Label>
-          <Input
-            type="text"
-            name="paymentMethod"
-            value={formData.paymentMethod}
-            onChange={handleChange}
-          />
-        </FormGroup>
+      <FormGroup>
+        <Label>Description</Label>
+        <Input
+          type="text"
+          name="description"
+          value={formData.description}
+          onChange={handleChange}
+        />
+      </FormGroup>
 
-        <FormGroup>
-        <Label>Date</Label>
-            <Input
-              type="date"
-              name="date"
-              value={formData.date}
-              onChange={handleChange}
-              required
-            />
-            {formData.startDate && (
-              <p>Formatted Date: {formatDate(formData.date)}</p>
-            )}
-        </FormGroup>
-
-        <FormGroup>
-          <Label>Description</Label>
-          <Input
-            type="text"
-            name="description"
-            value={formData.description}
-            onChange={handleChange}
-          />
-        </FormGroup>
-
-        
-        <Button
-          style={{
-            margin:'3px',
-            width: '100%',
-            backgroundColor:'var(--mint)',
-            color: 'white',
-            border: 'none',
-          }}
-          onClick={handleSubmit}>
-            Continue
-        </Button>
-      </Form>
-  }
-  </div>
+      
+      <Button variant="primary" type="submit">
+        Save
+      </Button>
+    </Form>
+  </Container>
   )
 }
