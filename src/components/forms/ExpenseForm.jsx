@@ -135,7 +135,7 @@ export default function ExpenseForm({ user }) {
           {formData.startDate && (
             <p>Formatted Date: {formatDate(formData.date)}</p>
           )}
-        </FormGroup>
+      </FormGroup>
 
       <FormGroup>
         <Label>Description</Label>
