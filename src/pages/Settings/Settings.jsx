@@ -11,22 +11,22 @@ import {
 } from 'reactstrap';
 
 export default function Settings() {
-  // const [activeProfile, setActiveProfile] = useState(DataProvider.profile);
-  const {profile} = useContext(DataContext)
-  console.log(profile)
+  const { profile, fetchData } = useContext(DataContext);
+
   useEffect(() => {
-  }, [profile]);
+    fetchData(); // Fetch user and profile data when the component mounts
+  }, []);
 
   return (
     <div className="SettingsContainer">
       <h4>Settings</h4>
       <div className="SettingsHeader">
         <div className="SettingsImage">
-        {/* <img src='/icons/profile.png' alt='profileIcon' /> */}
+          <img src='/icons/profileIcon.jpeg' alt='profileIcon' id='profileIcon' />
         </div>
         <div className="SettingsInfo">
           <div>
-          {`${profile.firstName}`} {`${profile.lastName}`}
+            {profile ? `${profile.firstName} ${profile.lastName}` : "Loading..."}
           </div>
         </div>
       </div>
