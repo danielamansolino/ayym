@@ -9,6 +9,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import About from '../About/About';
 import GettingStarted from '../GettingStarted/GettingStarted';
 import SpendingCategories from '../../components/SpendingCategories/SpendingCategories'
+import MobileNavBar from '../../components/MobileNavBar/MobileNavBar'
 import ExpensePage from '../ExpensePage/ExpensePage';
 
 import Settings from '../Settings/Settings';
@@ -44,7 +45,11 @@ export default function App() {
               <Route path="/categories" element={<SpendingCategories user={user} />} />
               <Route path="/expense" element={<ExpensePage user={user} />} />
               <Route path="/settings" element={<Settings user={user} />} />
+
+              <Route path="/navbar" element={<MobileNavBar user={user} />} />
+
               <Route path="/statistics" element={<Statistics user={user} />} />
+
             </Routes>
           </>
           :
