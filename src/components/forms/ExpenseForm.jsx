@@ -57,7 +57,8 @@ export default function ExpenseForm({ user }) {
   };
   
   return (
-    <Container>
+    <div className='form-container'>
+    <h4>Add your expenses</h4>
     <Form onSubmit={handleSubmit}>
 
       <FormGroup>
@@ -135,7 +136,7 @@ export default function ExpenseForm({ user }) {
           {formData.startDate && (
             <p>Formatted Date: {formatDate(formData.date)}</p>
           )}
-        </FormGroup>
+      </FormGroup>
 
       <FormGroup>
         <Label>Description</Label>
@@ -152,6 +153,6 @@ export default function ExpenseForm({ user }) {
         Save
       </Button>
     </Form>
-  </Container>
+  </div>
   )
 }

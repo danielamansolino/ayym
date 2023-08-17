@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
 import * as ProfilesAPI from '../../utilities/api/profiles-api';
-import * as BudgetsAPI from '../../utilities/api/budgets-api';
 
 import MainButton from '../buttons/MainButton';
+import Logo from '../Logo/Logo';
 
 // Style Imports
 import {
@@ -14,7 +14,7 @@ import {
   Input,
 } from 'reactstrap';
 
-export default function ProfileForm({ user }) {
+export default function ProfileOne({ user, step, setStep }) {
   const [formData, setFormData] = useState({
     user: user._id ? user._id : '',
     firstName: '',
@@ -53,15 +53,15 @@ export default function ProfileForm({ user }) {
     // Do something with the formData, e.g., send it to the server
     try {
       await ProfilesAPI.createProfile(formData);
-      await BudgetsAPI.createBudget(budgetData);
     } catch (err) {
       console.log(err);
     }
-    console.log(formData);
+    console.log('Profile Form One Data', formData);
+    setStep(step + 1)
   };
   
   return (
-    <Container>
+    <div className='form-container'>
     <Form onSubmit={handleSubmit}>
 
       <FormGroup>
@@ -87,16 +87,16 @@ export default function ProfileForm({ user }) {
       </FormGroup>
 
       <FormGroup>
-        <Label>Monthly Budget</Label>
+        <Label>Location</Label>
         <Input
-          type="number"
-          name="monthlyBudget"
-          value={budgetData.monthlyBudget}
+          type="text"
+          name="location"
+          value={formData.location}
           onChange={handleChange}
           required
         />
       </FormGroup>
-
+      
       <FormGroup>
         <Label>Age</Label>
         <Input
@@ -107,41 +107,9 @@ export default function ProfileForm({ user }) {
           required
         />
       </FormGroup>
-
-      <FormGroup>
-        <Label>Location</Label>
-        <Input
-          type="text"
-          name="location"
-          value={formData.location}
-          onChange={handleChange}
-          required
-        />
-      </FormGroup>
-
-      <FormGroup>
-        <Label>Student</Label>
-        <Input
-          type="checkbox"
-          name="isStudent"
-          value={formData.isStudent}
-          onChange={handleChange}
-        />
-      </FormGroup>
-
-      <FormGroup>
-        <Label>Employed</Label>
-        <Input
-          type="checkbox"
-          name="isEmployed"
-          value={formData.isEmployed}
-          onChange={handleChange}
-        />
-      </FormGroup>
-
       
-      <MainButton text={'Continue'} click={handleSubmit}></MainButton>
+      <MainButton color={'var(--mint)'} text={'Continue'} click={handleSubmit}></MainButton>
     </Form>
-  </Container>
+  </div>
   )
 }

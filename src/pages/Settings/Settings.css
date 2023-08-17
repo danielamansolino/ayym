@@ -27,7 +27,6 @@
   display: flex;
   flex-direction: column;
   background-color: green;
-  margin-top: -10%;
   height: 25vh;
   width: 80%;
   border-radius: 2vmin;
@@ -45,22 +44,24 @@
   align-items: center;
 }
 
-.SettingsButtonGroup {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-#SettingsButton {
-  width: 100vw;
-  display: flex;
-  justify-content: space-between;
-  border-radius: 0;
-}
-
-#SettingsButtonContent div {
+.SettingsItem {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+}
+
+.SettingsOption {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  width: 100%;
+  padding: 0;
+}
+
+.SettingsOption p {
+  margin: 0;
+  padding: 0;
 }

@@ -9,7 +9,6 @@ import {
   Form,
   FormGroup,
   Label,
-  Button,
   Input,
 } from 'reactstrap';
 
@@ -26,7 +25,6 @@ export default function IncomeForm({ user, step, setStep }) {
     type: '',
     recurring: false,
     amount: 0,
-    date: '',
   });
 
   const handleChange = (e) => {
@@ -52,7 +50,8 @@ export default function IncomeForm({ user, step, setStep }) {
   };
   
   return (
-    <Container>
+    <div className='form-container'>
+    <h4>Add your monthly income.</h4>
     <Form onSubmit={handleSubmit}>
 
       <FormGroup>
@@ -77,7 +76,7 @@ export default function IncomeForm({ user, step, setStep }) {
         />
       </FormGroup>
 
-      <FormGroup>
+      {/* <FormGroup>
           <Label>Date</Label>
           <Input
             type="date"
@@ -89,9 +88,9 @@ export default function IncomeForm({ user, step, setStep }) {
           {formData.startDate && (
             <p>Formatted Date: {formatDate(formData.date)}</p>
           )}
-        </FormGroup>
+        </FormGroup> */}
 
-        <FormGroup>
+        {/* <FormGroup>
         <Label>Recurring</Label>
         <Input
           type="checkbox"
@@ -99,10 +98,10 @@ export default function IncomeForm({ user, step, setStep }) {
           value={formData.recurring}
           onChange={handleChange}
         />
-      </FormGroup>
+      </FormGroup> */}
       
-      <MainButton text={'Continue'} click={handleSubmit}></MainButton>
+      <MainButton color={'var(--mint)'} text={'Continue'} click={handleSubmit}></MainButton>
     </Form>
-  </Container>
+  </div>
   )
 }

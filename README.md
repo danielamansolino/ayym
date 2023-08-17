@@ -1,5 +1,7 @@
 # ayym
 
+![Logo](/public/images/svg/logo.png)
+
 ## Mission
 
 The ultimate personal finance app tailored specifically for college students. Are you a student looking to master the art of saving while still enjoying all the exciting experiences college life has to offer? "Ayym" revolutionizes the way students approach personal finance by making saving both fun and empowering.
