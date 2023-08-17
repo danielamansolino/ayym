@@ -41,7 +41,7 @@ export default function ExpenseCard({ budget, category, expenses }) {
           <Card className="horizontal-card">
             <div className="icon">Icon</div>
             <div className="cardHeading">
-              <div className="cardCategory">{category}</div>
+              <h5 className="cardCategory">{category}</h5>
             </div>
             {expenses.map((expense) => (
               <CardBody key={expense._id}>
