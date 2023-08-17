@@ -39,7 +39,9 @@ export default function BudgetForm({ user, step, setStep }) {
     } catch (error) {
       console.error('There was an error at createAccount', error);
     }
-    setStep(step + 1)
+    if (step <= 7) {
+      setStep(step + 1)
+    }
   };
   
   return (
@@ -73,7 +75,7 @@ export default function BudgetForm({ user, step, setStep }) {
         />
       </FormGroup>
       
-      <MainButton text={'Continue'} click={handleSubmit}></MainButton>
+      <MainButton color={'var(--mint)'} text={'Continue'} click={handleSubmit}></MainButton>
     </Form>
   </Container>
   )
