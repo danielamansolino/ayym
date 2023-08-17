@@ -2,7 +2,7 @@ import sendRequest from "../send-request";
 const BASE_URL = '/api/expenses'; // Adjust the URL to match your endpoint
 
 export async function createExpense(expenseData) {
-  return sendRequest(BASE_URL, 'POST', expenseData);
+  return sendRequest(`${BASE_URL}`, 'POST', expenseData);
 }
 
 export async function updateExpense(expenseId, expenseData) {

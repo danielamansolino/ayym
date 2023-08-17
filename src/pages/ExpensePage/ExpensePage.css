@@ -1,0 +1,16 @@
+.expenseButton{
+    position: fixed;
+    top: 10px; /* Adjust this value to your preferred distance from the top */
+    right: 10px; /* Adjust this value to your preferred distance from the right */
+    display: flex;
+    width: 31px;
+    height: 31px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    background: var(--mint, #5FBB97);
+    margin-top: 20px;
+    margin-right: 10px;
+}

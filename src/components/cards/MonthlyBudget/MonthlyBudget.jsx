@@ -19,7 +19,7 @@ export default function MonthlyBudget({ budget, setStep }) {
 
 
   return (
-    <Container>
+    <Container className="monthlyBudgetCard">
       <Card>
         <CardTitle>Monthly Budget</CardTitle>
         <CardBody>

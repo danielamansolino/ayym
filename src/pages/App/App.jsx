@@ -10,8 +10,12 @@ import About from '../About/About';
 import GettingStarted from '../GettingStarted/GettingStarted';
 import SpendingCategories from '../../components/SpendingCategories/SpendingCategories'
 import MobileNavBar from '../../components/MobileNavBar/MobileNavBar'
-import ExpensePage from '../ExpensePage/ExpensePage';
+import ExpensePage from '../ExpensePage/ExpensePage'
+import ExpenseForm from '../../components/forms/ExpenseForm';
+
+
 import BudgetPage from '../BudgetPage/BudgetPage';
+
 
 import Settings from '../Settings/Settings';
 import Statistics from '../Statistics/Statistics';
@@ -44,13 +48,14 @@ export default function App() {
               <Route path="/about" element={<About />} />
               <Route path="/budget" element={<Budget user={user} />} />
               <Route path="/categories" element={<SpendingCategories user={user} />} />
-              <Route path="/expense" element={<ExpensePage user={user} />} />
+              <Route path="/new" element={<ExpenseForm user={user} />} />
               <Route path="/settings" element={<Settings user={user} />} />
               <Route path="/budgetpage" element={<BudgetPage user={user}/>} />
 
               <Route path="/navbar" element={<MobileNavBar user={user} />} />
 
               <Route path="/statistics" element={<Statistics user={user} />} />
+              {/* <Route path="/expenseForm" element={<ExpenseForm user={user} />} /> */}
 
             </Routes>
           </>
