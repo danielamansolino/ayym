@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 
 import BudgetForm from '../../components/forms/BudgetForm';
 import MainButton from '../../components/buttons/MainButton';
+import IncomeForm from '../../components/forms/IncomeForm';
 import * as BudgetsAPI from '../../utilities/api/budgets-api';
+import * as IncomesAPI from '../../utilities/api/incomes-api';
 
 import './BudgetPage.css';
 import {
@@ -13,10 +15,32 @@ import {
 
 export default function BudgetPage({ user }) {
   const [budget, setBudget] = useState(null);
+  const [income, setIncome] = useState(null);
+  const [totalIncome, setTotalIncome] = useState(0);
 
   useEffect(() => {
     fetchBudget();
+    fetchIncome();
+    calculateTotalIncome();
   }, []);
+
+  const calculateTotalIncome = () => {
+    let total = 0;
+    income.forEach((income) => {
+      total += income.amount;
+    });
+    setTotalIncome(total);
+  }
+  console.log(totalIncome)
+
+  const fetchIncome = async () => {
+    try {
+      const fetchedIncome = await IncomesAPI.getIncomes();
+      setIncome(fetchedIncome);
+    } catch (error) {
+      console.error('Error fetching income:', error);
+    }
+  }
 
   const fetchBudget = async () => {
     try {
@@ -31,9 +55,16 @@ export default function BudgetPage({ user }) {
 
   return (
     <div>
-      <BudgetForm user={user} />
+      {/* <BudgetForm user={user} /> */}
+      <IncomeForm user={user} />
     <div>Budget Page</div>
-    <MainButton />
+    <MainButton text='Add New Budget' color={'var(--mint)'} />
+    <Card>
+      <CardBody>
+        <div>Estimated Income</div>
+        <div>{totalIncome}</div>
+      </CardBody>
+    </Card>
     { budget ? 
       budget.map((budget) => (
         <Card key={budget._id}>
