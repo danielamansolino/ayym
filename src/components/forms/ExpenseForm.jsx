@@ -26,8 +26,8 @@ export default function ExpenseForm({ user }) {
     user: user._id ? user._id : '',
     category: '',
     amount: '',
-    recurring: false,
-    paid: false,
+    // recurring: false,
+    // paid: false,
     paymentMethod: '',
     date: '',
     description: '',
@@ -89,7 +89,7 @@ export default function ExpenseForm({ user }) {
         />
       </FormGroup>
 
-      <FormGroup>
+      {/* <FormGroup>
         <Label>Recurring</Label>
         <Input
           type="checkbox"
@@ -97,9 +97,9 @@ export default function ExpenseForm({ user }) {
           value={formData.recurring}
           onChange={handleChange}
         />
-      </FormGroup>
+      </FormGroup> */}
 
-      <FormGroup>
+      {/* <FormGroup>
         <Label>Paid</Label>
         <Input
           type="checkbox"
@@ -107,7 +107,7 @@ export default function ExpenseForm({ user }) {
           value={formData.paid}
           onChange={handleChange}
         />
-      </FormGroup>
+      </FormGroup> */}
 
       <FormGroup>
         <Label>Payment Method</Label>
