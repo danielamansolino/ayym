@@ -1,0 +1,19 @@
+.budgetCardTitleContainer{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+    padding-top: 15px;
+}
+
+
+.budgetCardBody{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+}

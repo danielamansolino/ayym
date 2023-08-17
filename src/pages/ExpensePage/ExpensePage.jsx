@@ -7,15 +7,18 @@ import './ExpensePage.css';
 import ExpenseCard from '../../components/cards/ExpenseCard/ExpenseCard';
 import MonthlyBudget from '../../components/cards/MonthlyBudget/MonthlyBudget';
 import MonthlyBudgetAvailable from '../../components/cards/MonthlyBudget/MonthlyBudgetAvailable';
-import ExpenseForm from '../../components/forms/ExpenseForm'
+import ExpenseForm from '../../components/forms/ExpenseForm';
+import BudgetCard from '../../components/cards/BudgetCard/BudgetCard';
 
 //API for Expenses
 import { listExpenses } from '../../utilities/api/expenses-api';
+import { getBudget } from '../../utilities/api/budgets-api';
 
 
 
 
-export default function ExpensePage({ budget, expense, user}) {
+
+export default function ExpensePage({ expense, user}) {
 //   const [hideForm, setHideForm] = useState(false);
     // Create an array of years from 2000 to 2023
   const years = Array.from({ length: 2024 - 2000 }, (_, index) => 2000 + index);
@@ -33,6 +36,9 @@ export default function ExpensePage({ budget, expense, user}) {
 
   //Use State for Expenses
   const [expenses, setExpenses] = useState([]);
+  
+  //User State for Budget
+  const [budget, setBudget] = useState(null);
 
   //Fetch a list of expenses
   useEffect(() => {
@@ -65,6 +71,21 @@ export default function ExpensePage({ budget, expense, user}) {
    }
    expensesByCategory[category].push(expense);
  });
+
+
+ //Fetch Budget
+ useEffect(() => {
+    async function fetchBudget() {
+      try {
+        const fetchedBudget = await getBudget();
+        setBudget(fetchedBudget);
+      } catch (error) {
+        console.error('Error fetching budget:', error);
+      }
+    }
+  
+    fetchBudget();
+  }, []);
 
 
 
@@ -101,7 +122,10 @@ export default function ExpensePage({ budget, expense, user}) {
     <h2>${totalExpense}</h2>
 
     {/* Monthly Budget*/}
-     <MonthlyBudget/>
+     {/* <MonthlyBudget/> */}
+
+     {/* Budget Card */}
+     <BudgetCard/>
 
 
     {/* Monthly Budget Available*/}
