@@ -12,11 +12,6 @@ import ProfileTwo from '../../components/forms/ProfileTwo'
 import BudgetForm from '../../components/forms/BudgetForm'
 
 import './GettingStarted.css';
-import {
-  Button,
-  Container,
-  ButtonGroup
-} from 'reactstrap';
 
 export default function GettingStarted({ user }) {
   const [step, setStep] = useState(1);

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 import * as ProfilesAPI from '../../utilities/api/profiles-api';
-import * as BudgetsAPI from '../../utilities/api/budgets-api';
 
 import MainButton from '../buttons/MainButton';
 
@@ -11,7 +10,6 @@ import {
   Form,
   FormGroup,
   Label,
-  Button,
   Input,
 } from 'reactstrap';
 
