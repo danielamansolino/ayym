@@ -13,7 +13,11 @@ const categorySchema = new Schema({
 
 const expenseSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: 'User', required: true }, // Reference to the user who created the expense
-  category: [categorySchema], // Category of the expense (e.g., groceries, utilities, rent)
+  category: {
+      type: String,
+      enum: ['Transportation', 'Bills', 'Services', 'Cash', 'Check', 'Clothing', 'CreditCard'],
+      required: true,
+    }, // Category of the expense (e.g., groceries, utilities, rent)
   amount: { type: Number, required: true }, // Amount of the expense
   recurring: { type: Boolean, default: false }, // Whether the expense is recurring
   paid: { type: Boolean, default: false }, // Whether the expense has been paid

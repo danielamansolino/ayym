@@ -24,7 +24,6 @@ function formatDate(date) {
 export default function ExpenseForm({ user }) {
   const [formData, setFormData] = useState({
     user: user._id ? user._id : '',
-    type: '',
     category: '',
     amount: '',
     recurring: false,
@@ -55,32 +54,28 @@ export default function ExpenseForm({ user }) {
       console.error('There was an error at createExpense', error);
     }
   };
+
+  const categoryOptions = ['Transportation', 'Bills', 'Services', 'Cash', 'Check', 'Clothing', 'CreditCard'];
   
   return (
     <Container>
     <Form onSubmit={handleSubmit}>
 
-      <FormGroup>
-        <Label>Type</Label>
-        <Input
-          type="text"
-          name="type"
-          value={formData.type}
-          onChange={handleChange}
-          required
-        />
-      </FormGroup>
-
-      <FormGroup>
-        <Label>Category</Label>
-        <Input
-          type="text"
-          name="category"
-          value={formData.category}
-          onChange={handleChange}
-          required
-        />
-      </FormGroup>
+    <FormGroup>
+      <Label>Category</Label>
+      <Input
+        type="select"
+        name="category"
+        value={formData.category}
+        onChange={handleChange}
+        required
+      >
+        <option value="" disabled>Select a category</option>
+        {categoryOptions.map(option => (
+          <option key={option} value={option}>{option}</option>
+        ))}
+      </Input>
+    </FormGroup>
 
       <FormGroup>
         <Label>Amount</Label>

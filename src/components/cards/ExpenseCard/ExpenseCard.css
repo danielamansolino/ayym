@@ -1,0 +1,28 @@
+.ExpenseCardContainer {
+
+}
+
+.cardHeading{
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+}
+
+.icon{
+    display: flex;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.cardCategory{
+    flex: 1;
+    text-align: center;
+    justify-content: center;
+}
+
+
+.expenseAndAmount{
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+}
