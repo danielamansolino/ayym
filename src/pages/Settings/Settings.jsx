@@ -20,7 +20,7 @@ export default function Settings() {
       <h4>Settings</h4>
       <div className="SettingsHeader">
         <div className="SettingsImage">
-        {/* <img src='/icons/profile.png' alt='profileIcon' /> */}
+        <img src='/icons/profileIcon.jpeg' alt='profileIcon' id='profileIcon' /> 
         </div>
         <div className="SettingsInfo">
           <div>

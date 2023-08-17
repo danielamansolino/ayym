@@ -16,8 +16,8 @@
 }
 
 .SettingsImage {
-  height: 25x;
-  width: 25px;
+  height: 13vh;
+  width: 13vh;
   background-color: gray;
   border-radius: 50%;
   position: relative;
@@ -25,6 +25,11 @@
   margin-bottom: -50px;
 }
 
+#profileIcon {
+  height: 13vh;
+  width: 13vh;
+  border-radius: 50%;
+}
 .SettingsInfo {
   display: flex;
   flex-direction: column;
