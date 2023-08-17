@@ -114,7 +114,7 @@ export default function GettingStarted({ user }) {
         <div id='step-container'>
           <div id={`step-one`} style={{ backgroundColor: `${ step >= 1 ? 'green' : 'green'}` }}></div>
           <div id={`step-two`} style={{ backgroundColor: `${ step >= 3 ? 'green' : 'white'}` }}></div>
-          <div id={`step-four`} style={{ backgroundColor: `${ step >= 5 ? 'green' : 'white'}` }}></div>
+          <div id={`step-four`} style={{ backgroundColor: `${ step >= 4 ? 'green' : 'white'}` }}></div>
           <div id={`step-six`} style={{ backgroundColor: `${ step >= 6 ? 'green' : 'white'}` }}></div>
         </div>
       </div>

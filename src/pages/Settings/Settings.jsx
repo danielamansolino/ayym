@@ -14,6 +14,8 @@ export default function Settings() {
   // const [activeProfile, setActiveProfile] = useState(DataProvider.profile);
   const {profile} = useContext(DataContext)
   console.log(profile)
+  useEffect(() => {
+  }, [profile]);
 
   return (
     <div className="SettingsContainer">
