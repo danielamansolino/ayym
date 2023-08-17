@@ -10,12 +10,17 @@ import About from '../About/About';
 import GettingStarted from '../GettingStarted/GettingStarted';
 import SpendingCategories from '../../components/SpendingCategories/SpendingCategories'
 import ExpensePage from '../ExpensePage/ExpensePage';
+
+import Settings from '../Settings/Settings';
+
 import {useLocation} from 'react-router-dom'
+
 
 
 // Component Imports in test
 import Account from '../../components/Account/Account';
 import Budget from '../../components/Budget/Budget';
+
 
 export default function App() {
   const location = useLocation(); // Get the current location
@@ -37,6 +42,7 @@ export default function App() {
               <Route path="/budget" element={<Budget user={user} />} />
               <Route path="/categories" element={<SpendingCategories user={user} />} />
               <Route path="/expense" element={<ExpensePage user={user} />} />
+              <Route path="/settings" element={<Settings user={user} />} />
             </Routes>
           </>
           :
