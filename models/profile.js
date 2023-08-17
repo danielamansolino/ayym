@@ -8,9 +8,9 @@ const profileSchema = new Schema({
   lastName: { type: String, required: true }, // Last name of the user, if needed, will have to delete from "User" model
   age: { type: Number, required: true }, // Age of the user
 
-  isStudent: { type: Boolean, required: true }, // Is the user a student
+  isStudent: { type: Boolean }, // Is the user a student
   school: { type: String }, // School of the user, if they are a student
-  isEmployed: { type: Boolean, required: true }, // Is the user employed
+  isEmployed: { type: Boolean }, // Is the user employed
   occupation: { type: String }, // Occupation of the user, if they are employed
   workHours: { type: Number }, // Work hours of the user, if they are employed
   salary: { type: Number }, // Salary of the user, if they are employed
