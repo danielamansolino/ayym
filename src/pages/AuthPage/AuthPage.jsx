@@ -10,7 +10,7 @@ import Logo from '../../components/Logo/Logo';
 export default function AuthPage({ setUser }) {
   const [userPref, setUserPref] = useState('view');
   const [formType, setFormType] = useState('signup');
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   function handleSignUp() {
     setUserPref('signup');

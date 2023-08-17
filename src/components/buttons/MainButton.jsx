@@ -4,7 +4,6 @@ import { Button } from 'reactstrap';
 
 export default function MainButton({ color, text, click }) {
 
-
   console.log(color)
   return (
     <>
