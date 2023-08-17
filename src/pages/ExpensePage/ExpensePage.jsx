@@ -6,6 +6,7 @@ import './ExpensePage.css';
 import ExpenseCard from '../../components/cards/ExpenseCard/ExpenseCard';
 import MonthlyBudget from '../../components/cards/MonthlyBudget/MonthlyBudget';
 import MonthlyBudgetAvailable from '../../components/cards/MonthlyBudget/MonthlyBudgetAvailable';
+import ExpenseForm from '../../components/forms/ExpenseForm'
 
 
 //API for Expenses
@@ -66,7 +67,7 @@ export default function ExpensePage({ budget, expense}) {
  });
 
 
- 
+
 
 
   return (
