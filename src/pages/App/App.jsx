@@ -51,13 +51,11 @@ export default function App() {
               <Route path="/new" element={<ExpenseForm user={user} />} />
               <Route path="/settings" element={<Settings user={user} />} />
               <Route path="/budgetpage" element={<BudgetPage user={user}/>} />
-
-              <Route path="/navbar" element={<MobileNavBar user={user} />} />
-
+              <Route path="/" element={<MobileNavBar user={user} />} />
               <Route path="/statistics" element={<Statistics user={user} />} />
               {/* <Route path="/expenseForm" element={<ExpenseForm user={user} />} /> */}
-
             </Routes>
+            <MobileNavBar />
           </>
           :
           <AuthPage setUser={setUser} />
