@@ -11,6 +11,7 @@ import GettingStarted from '../GettingStarted/GettingStarted';
 import SpendingCategories from '../../components/SpendingCategories/SpendingCategories'
 import MobileNavBar from '../../components/MobileNavBar/MobileNavBar'
 import ExpensePage from '../ExpensePage/ExpensePage';
+import BudgetPage from '../BudgetPage/BudgetPage';
 
 import Settings from '../Settings/Settings';
 import Statistics from '../Statistics/Statistics';
@@ -45,6 +46,7 @@ export default function App() {
               <Route path="/categories" element={<SpendingCategories user={user} />} />
               <Route path="/expense" element={<ExpensePage user={user} />} />
               <Route path="/settings" element={<Settings user={user} />} />
+              <Route path="/budgetpage" element={<BudgetPage user={user}/>} />
 
               <Route path="/navbar" element={<MobileNavBar user={user} />} />
 
