@@ -21,8 +21,13 @@ async function create(req, res) {
 }
 
 async function update(req, res) {
+  console.log(req.body)
   try {
-    const profile = await Profile.findOneAndUpdate({ user: req.user._id }, req.body, { new: true });
+    const profile = await Profile.findOneAndUpdate({
+      user: req.user._id },
+      req.body,
+      // Below returns the updated object
+      { new: true });
     res.json(profile);
   } catch (err) {
     res.status(400).json(err);

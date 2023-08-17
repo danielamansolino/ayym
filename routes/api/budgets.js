@@ -9,6 +9,6 @@ router.post('/', budgetCtrl.create);
 // GET /api/budgets (get all budgets)
 router.get('/', budgetCtrl.index);
 // PUT /api/budgets/:id (update an budget)
-router.put('/:id', budgetCtrl.update);
+router.put('/', budgetCtrl.update);
 
 module.exports = router;

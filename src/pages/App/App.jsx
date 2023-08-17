@@ -8,6 +8,7 @@ import AuthPage from '../AuthPage/AuthPage';
 import NavBar from '../../components/NavBar/NavBar';
 import About from '../About/About';
 import GettingStarted from '../GettingStarted/GettingStarted';
+import SpendingCategories from '../../components/SpendingCategories/SpendingCategories'
 import ExpensePage from '../ExpensePage/ExpensePage';
 
 
@@ -29,6 +30,7 @@ export default function App() {
               <Route path="/start" element={<GettingStarted user={user} />} />
               <Route path="/about" element={<About />} />
               <Route path="/budget" element={<Budget user={user} />} />
+              <Route path="/categories" element={<SpendingCategories user={user} />} />
               <Route path="/expense" element={<ExpensePage user={user} />} />
             </Routes>
           </>
