@@ -35,7 +35,7 @@ export default function ExpenseCard({ budget, category, expenses }) {
 
 
     return (
-      <div className="ExpenseCardContainer">
+      <Container className="ExpenseCardContainer">
       <Row>
         <Col>
           <Card className="horizontal-card">
@@ -58,7 +58,7 @@ export default function ExpenseCard({ budget, category, expenses }) {
           </Card>
         </Col>
       </Row>
-    </div>
+    </Container>
   );
 }
 
