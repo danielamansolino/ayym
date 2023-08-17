@@ -10,6 +10,7 @@ import About from '../About/About';
 import GettingStarted from '../GettingStarted/GettingStarted';
 import SpendingCategories from '../../components/SpendingCategories/SpendingCategories'
 import ExpensePage from '../ExpensePage/ExpensePage';
+import Settings from '../Settings/Settings';
 
 
 // Component Imports in test
@@ -32,6 +33,7 @@ export default function App() {
               <Route path="/budget" element={<Budget user={user} />} />
               <Route path="/categories" element={<SpendingCategories user={user} />} />
               <Route path="/expense" element={<ExpensePage user={user} />} />
+              <Route path="/settings" element={<Settings user={user} />} />
             </Routes>
           </>
           :

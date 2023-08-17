@@ -1,6 +1,6 @@
 import React from 'react';
-
-
+import { useContext, useEffect, useState } from "react";
+import { DataContext } from '../../utilities/DataContext';
 import './Settings.css';
 import {
   Container,
@@ -11,18 +11,20 @@ import {
 } from 'reactstrap';
 
 export default function Settings() {
+  // const [activeProfile, setActiveProfile] = useState(DataProvider.profile);
+  const {profile} = useContext(DataContext)
+  console.log(profile)
+
   return (
     <div className="SettingsContainer">
       <h4>Settings</h4>
       <div className="SettingsHeader">
         <div className="SettingsImage">
-          image
+        {/* <img src='/icons/profile.png' alt='profileIcon' /> */}
         </div>
         <div className="SettingsInfo">
           <div>
-            Jocelyn M.
-            <br />
-            Jocelyn.mendez@gmail.com
+          {`${profile.firstName}`} {`${profile.lastName}`}
           </div>
         </div>
       </div>
@@ -35,7 +37,7 @@ export default function Settings() {
             tag="a"
             className="SettingsItem"
           >
-            <div className="SettingsOption"><p>icon Personal Finance Learning</p><p>arrow right</p></div>
+            <div className="SettingsOption"><img src='/icons/school.png' alt='schoolIcon' /><p>Personal Finance Learning</p><p><img src='/icons/chevron_big_right.png' alt='arrowIcon' /></p></div>
           </ListGroupItem>
 
           <ListGroupItem
@@ -43,7 +45,7 @@ export default function Settings() {
             tag="a"
             className="SettingsItem"
           >
-            <div className="SettingsOption"><p>icon Accounts</p><p>arrow right</p></div>
+            <div className="SettingsOption"><img src='/icons/id-card.png' alt='accountIcon' /><p> Accounts</p><p><img src='/icons/chevron_big_right.png' alt='arrowIcon' /></p></div>
           </ListGroupItem>
 
           <ListGroupItem
@@ -51,7 +53,7 @@ export default function Settings() {
             tag="a"
             className="SettingsItem"
           >
-            <div className="SettingsOption"><p>icon Privacy & Security</p><p>arrow right</p></div>
+            <div className="SettingsOption"><img src='/icons/lock-closed.png' alt='lockIcon' /><p> Privacy & Security</p><p><img src='/icons/chevron_big_right.png' alt='arrowIcon' /></p></div>
           </ListGroupItem>
 
           <ListGroupItem
@@ -59,7 +61,7 @@ export default function Settings() {
             tag="a"
             className="SettingsItem"
           >
-            <div className="SettingsOption"><p>icon Help & Legal</p><p>arrow right</p></div>
+            <div className="SettingsOption"><img src='/icons/help-circle.png' alt='helpIcon' /><p> Help & Legal</p><p><img src='/icons/chevron_big_right.png' alt='arrowIcon' /></p></div>
           </ListGroupItem>
           
           <ListGroupItem
@@ -67,7 +69,7 @@ export default function Settings() {
             tag="a"
             className="SettingsItem"
           >
-            <div className="SettingsOption"><p>icon Notifications</p><p>arrow right</p></div>
+            <div className="SettingsOption"><img src='/icons/notifications.png' alt='notificationsIcon' /><p> Notifications</p><p><img src='/icons/chevron_big_right.png' alt='arrowIcon' /></p></div>
           </ListGroupItem>
           
         </ListGroup>
