@@ -6,11 +6,44 @@
 .app-logo {
     margin-bottom: -20px;
 }
-.x {
-    background-color: #5FBB97;
-    color: white;
-}
 
 .clickable-text {
     color: #5FBB97;
 }
+
+.auth-page-container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    max-width: 1024px;
+}
+
+.auth-page-container .x {
+    background-color: #5FBB97;
+    color: white;
+    border: none;
+    width: 100%;
+}
+
+.auth-page-container .x:hover {
+    background-color: red;
+    color: white;
+}
+
+.auth-page-container h4 {
+    text-align: center;
+    font-size: 1rem;
+}
+.auth-page-container h5 {
+    text-align: center;
+    font-size: .75rem;
+}
+
+.form-container {
+    width: 100%;
+}
+
+.form-container label {
+    font-size: .75rem;
+}
+

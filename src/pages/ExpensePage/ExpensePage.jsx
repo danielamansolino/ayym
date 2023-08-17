@@ -4,10 +4,17 @@ import './ExpensePage.css';
 
 // Components
 import ExpenseCard from '../../components/cards/ExpenseCard/ExpenseCard';
+import MonthlyBudget from '../../components/cards/MonthlyBudget/MonthlyBudget';
+import MonthlyBudgetAvailable from '../../components/cards/MonthlyBudget/MonthlyBudgetAvailable';
+
+
+//API for Expenses
+import { listExpenses } from '../../utilities/api/expenses-api';
 
 
 
-export default function ExpensePage() {
+
+export default function ExpensePage({ budget, expense}) {
 
     // Create an array of years from 2000 to 2023
   const years = Array.from({ length: 2024 - 2000 }, (_, index) => 2000 + index);
@@ -21,9 +28,50 @@ export default function ExpensePage() {
   // Initialize state for selected year and month
   const [selectedYear, setSelectedYear] = useState(years[0]);
   const [selectedMonth, setSelectedMonth] = useState(0);
+
+
+  //Use State for Expenses
+  const [expenses, setExpenses] = useState([]);
+
+  //Fetch a list of expenses
+  useEffect(() => {
+    async function fetchExpenses() {
+      try {
+        const fetchedExpenses = await listExpenses();
+        setExpenses(fetchedExpenses);
+      } catch (error) {
+        console.error('Error fetching expenses:', error);
+      }
+    }
+
+    fetchExpenses();
+  }, []);
+
+
+ //Get the total amount for each Expense
+ const totalExpense = expenses.reduce((total, expense) => total + expense.amount, 0);
+
+ //Monthly Available Budget
+ const [percentage, setPercentage] = useState(0)
+
+
+ //Expenses by Category
+ const expensesByCategory = {};
+ expenses.forEach((expense) => {
+   const category = expense.category;
+   if (!expensesByCategory[category]) {
+     expensesByCategory[category] = [];
+   }
+   expensesByCategory[category].push(expense);
+ });
+
+
+ 
+
+
   return (
     <>
-    <div>Expenses</div>
+    <h1>Expenses</h1>
     <div>
       <select
         id="month"
@@ -43,10 +91,22 @@ export default function ExpensePage() {
         ))}
       </select>
     </div>
-    <div>Value for Total Expenses</div>
-    <ExpenseCard/>
-    <ExpenseCard/>
-    <ExpenseCard/>
+
+    {/* Total Expenses */}
+    <h2>${totalExpense}</h2>
+
+    {/* Monthly Budget*/}
+     <MonthlyBudget/>
+
+
+    {/* Monthly Budget Available*/}
+     {/* <MonthlyBudgetAvailable/> */}
+
+     <div>
+  {Object.entries(expensesByCategory).map(([category, categoryExpenses]) => (
+    <ExpenseCard key={category} category={category} expenses={categoryExpenses} />
+  ))}
+</div>
     </>
   )
 }

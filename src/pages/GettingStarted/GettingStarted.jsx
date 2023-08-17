@@ -10,13 +10,9 @@ import ExpenseForm from '../../components/forms/ExpenseForm';
 import ProfileOne from '../../components/forms/ProfileOne'
 import ProfileTwo from '../../components/forms/ProfileTwo'
 import BudgetForm from '../../components/forms/BudgetForm'
+import Logo from '../../components/Logo/Logo';
 
 import './GettingStarted.css';
-import {
-  Button,
-  Container,
-  ButtonGroup
-} from 'reactstrap';
 
 export default function GettingStarted({ user }) {
   const [step, setStep] = useState(1);
@@ -113,17 +109,15 @@ export default function GettingStarted({ user }) {
   return (
     <div className='GettingStartedContainer'>
 
-      { showForm ? null :
       <div className='LogoContainer'>
-        <img src="/images/svg/logo.png" alt="logo" />
+        <Logo />
         <div id='step-container'>
           <div id={`step-one`} style={{ backgroundColor: `${ step >= 1 ? 'green' : 'green'}` }}></div>
-          <div id={`step-two`} style={{ backgroundColor: `${ step >= 2 ? 'green' : 'white'}` }}></div>
-          <div id={`step-four`} style={{ backgroundColor: `${ step >= 4 ? 'green' : 'white'}` }}></div>
+          <div id={`step-two`} style={{ backgroundColor: `${ step >= 3 ? 'green' : 'white'}` }}></div>
+          <div id={`step-four`} style={{ backgroundColor: `${ step >= 5 ? 'green' : 'white'}` }}></div>
           <div id={`step-six`} style={{ backgroundColor: `${ step >= 6 ? 'green' : 'white'}` }}></div>
         </div>
       </div>
-      }
 
         { step === 1 ? <ProfileOne user={user} step={step} setStep={setStep}  /> :  null }
         { step === 2 ? <ProfileTwo user={user} step={step} setStep={setStep}  /> :  null }
@@ -132,7 +126,7 @@ export default function GettingStarted({ user }) {
         { step === 5 ?
         <>
         <IncomeForm user={user} step={step} setStep={setStep} /> 
-        <BudgetForm user={user} step={step} setStep={setStep} />
+        {/* <BudgetForm user={user} step={step} setStep={setStep} /> */}
         </>
         :  null }
         { step === 6 ? <Expenses /> :  null }
@@ -151,11 +145,11 @@ export default function GettingStarted({ user }) {
         : null} */}
 
       { showTopButton ? 
-        <MainButton color={'success'} text={topButtonText} click={handleAdd} />
+        <MainButton color={'var(--mint)'} text={topButtonText} click={handleAdd} />
       : null}
 
       { showBottomButton ? 
-      <MainButton color='danger' text={bottomButtonText} click={handleBack} />
+      <MainButton color='test' text={bottomButtonText} click={handleBack} />
       : null}
 
     </div>

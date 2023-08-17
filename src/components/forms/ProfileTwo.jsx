@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 import * as ProfilesAPI from '../../utilities/api/profiles-api';
-import * as BudgetsAPI from '../../utilities/api/budgets-api';
 
 import MainButton from '../buttons/MainButton';
 
@@ -11,7 +10,6 @@ import {
   Form,
   FormGroup,
   Label,
-  Button,
   Input,
 } from 'reactstrap';
 
@@ -52,7 +50,7 @@ export default function ProfileTwo({ user, step, setStep }) {
   };
   
   return (
-    <Container>
+    <div className='form-container'>
     <Form onSubmit={handleSubmit}>
 
       <FormGroup>
@@ -76,8 +74,8 @@ export default function ProfileTwo({ user, step, setStep }) {
       </FormGroup>
 
       
-      <MainButton text={'Continue'} click={handleSubmit}></MainButton>
+      <MainButton color={'var(--mint)'} text={'Continue'} click={handleSubmit}></MainButton>
     </Form>
-  </Container>
+  </div>
   )
 }

@@ -4,6 +4,8 @@ import SignUpForm from '../../components/SignUpForm/SignUpForm';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import './AuthPage.css';
 import { Button } from 'reactstrap';
+import MainButton from '../../components/buttons/MainButton';
+import Logo from '../../components/Logo/Logo';
 
 export default function AuthPage({ setUser }) {
   const [userPref, setUserPref] = useState('view');
@@ -25,9 +27,10 @@ export default function AuthPage({ setUser }) {
   return (
     <div className="auth-page-container">
       <div className="app-logo-container">
-        <a href="https://imgur.com/GUCAUR9.png" target="_blank" rel="noopener noreferrer">
-          <img src="https://imgur.com/GUCAUR9.png" alt="Logo Ayym" className="app-logo" />
-        </a>
+        {/* <a href="https://imgur.com/GUCAUR9.png" target="_blank" rel="noopener noreferrer">
+          <img src="https://imgur.com/GUCAUR9.png" alt="Logo_Ayym" className="app-logo" />
+        </a> */}
+        <Logo />
       </div>
 
       {userPref === 'view' && (
@@ -37,12 +40,13 @@ export default function AuthPage({ setUser }) {
           <br />
           <h4>Your ticket to financial success!</h4>
           <a href="https://imgur.com/CLCmr7K.png" target="_blank" rel="noopener noreferrer">
-          <img src="https://imgur.com/CLCmr7K.png" alt="Image Ayym" className="app-image" />
+          <img src="https://imgur.com/CLCmr7K.png" alt="Image_Ayym" className="app-image" />
           </a>
           <br />
           <br />
           <Button onClick={handleSignUp} className="x" size="lg" block>Get Started</Button>
           <p>
+            <br />
             Already have an account?{' '}
             <span onClick={handleSignIn} className="clickable-text">
               Sign In
@@ -53,7 +57,7 @@ export default function AuthPage({ setUser }) {
 
       {userPref === 'signup' && (
         <div className="form-container">
-          <h2>Create your account.</h2>
+          <h5>Create your account.</h5>
           <SignUpForm setUser={setUser} />
           <p>
             Already have an account?{' '}
@@ -66,7 +70,7 @@ export default function AuthPage({ setUser }) {
 
       {userPref === 'login' && (
         <div className="form-container">
-          <h2>Welcome to AYYM!</h2>
+          <h4>Welcome to AYYM!</h4>
           <LoginForm setUser={setUser} />
           <p>
             Don’t have an account?{' '}

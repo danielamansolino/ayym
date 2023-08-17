@@ -9,6 +9,7 @@ module.exports = {
 };
 
 async function create(req, res) {
+  console.log(req.body);
   try {
     // Add the expense to the db
     const expense = await Expense.create({ ...req.body, user: req.user._id });
