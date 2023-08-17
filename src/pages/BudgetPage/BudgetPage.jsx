@@ -4,6 +4,11 @@ import BudgetForm from '../../components/forms/BudgetForm';
 import * as BudgetsAPI from '../../utilities/api/budgets-api';
 
 import './BudgetPage.css';
+import {
+  Card,
+  CardTitle,
+  CardBody,
+} from 'reactstrap';
 
 export default function BudgetPage({ user }) {
   const [budget, setBudget] = useState(null);
@@ -29,10 +34,14 @@ export default function BudgetPage({ user }) {
     <div>Budget Page</div>
     { budget ? 
       budget.map((budget) => (
-        <div key={budget._id}>
-          <div>{budget.category}</div>
-          <div>{budget.monthlyBudget}</div>
-          </div>
+        <Card key={budget._id}>
+          <CardBody>
+            <div className='BudgetCard'>
+              {budget.category} Budget
+              {budget.monthlyBudget}
+            </div>
+          </CardBody>
+        </Card>
       ))
       : null }
     </div>
