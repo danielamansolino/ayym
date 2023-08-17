@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import BudgetForm from '../../components/forms/BudgetForm';
+import MainButton from '../../components/buttons/MainButton';
 import * as BudgetsAPI from '../../utilities/api/budgets-api';
 
 import './BudgetPage.css';
@@ -32,6 +33,7 @@ export default function BudgetPage({ user }) {
     <div>
       <BudgetForm user={user} />
     <div>Budget Page</div>
+    <MainButton />
     { budget ? 
       budget.map((budget) => (
         <Card key={budget._id}>
