@@ -1,0 +1,67 @@
+.StatisticsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.ProgressStyle {
+  width: 100%;
+  height: 100%;
+  border-radius: 2vmin;
+}
+.ProgressStyle div {
+  width: 100%;
+  height: 100%;
+  border-radius: 2vmin;
+}
+
+.StatisticsGraphics {
+  width: 100%;
+}
+
+.StatsCircle {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+}
+
+.StatsGraphicsKey {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 5vh;
+}
+
+.StatsTable tbody {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 5vh;
+}
+
+.StatsTableTitle {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 5vh;
+}
+
+.StatsCardName {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.StatsCardPercent td {
+  
+}
+
+.StatsCardNums td {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
