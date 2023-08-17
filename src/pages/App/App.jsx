@@ -14,7 +14,7 @@ import ExpensePage from '../ExpensePage/ExpensePage';
 // Component Imports in test
 import Account from '../../components/Account/Account';
 import Budget from '../../components/Budget/Budget';
-import ExpensePage from '../ExpensePage/ExpensePage';
+
 
 export default function App() {
   const [user, setUser] = useState(getUser());
