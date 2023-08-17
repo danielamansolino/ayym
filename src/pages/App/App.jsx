@@ -45,11 +45,8 @@ export default function App() {
               <Route path="/categories" element={<SpendingCategories user={user} />} />
               <Route path="/expense" element={<ExpensePage user={user} />} />
               <Route path="/settings" element={<Settings user={user} />} />
-<<<<<<<<< Temporary merge branch 1
               <Route path="/navbar" element={<MobileNavBar user={user} />} />
-=========
               <Route path="/statistics" element={<Statistics user={user} />} />
->>>>>>>>> Temporary merge branch 2
             </Routes>
           </>
           :
