@@ -16,7 +16,7 @@ import { listExpenses } from '../../utilities/api/expenses-api';
 
 
 export default function ExpensePage({ budget, expense, user}) {
-  const [hideForm, setHideForm] = useState(false);
+//   const [hideForm, setHideForm] = useState(false);
     // Create an array of years from 2000 to 2023
   const years = Array.from({ length: 2024 - 2000 }, (_, index) => 2000 + index);
 
@@ -69,11 +69,14 @@ export default function ExpensePage({ budget, expense, user}) {
 
 
 
-
   return (
     <>
+    <Link to="/new">
+      <button className="expenseButton"></button>
+    </Link>
     <h1>Expenses</h1>
-    <ExpenseForm user={user} hideForm={hideForm} />
+    {/* <ExpenseForm user={user} hideForm={hideForm} /> */}
+    {/* <ExpenseForm user={user} /> */}
     <div>
       <select
         id="month"
