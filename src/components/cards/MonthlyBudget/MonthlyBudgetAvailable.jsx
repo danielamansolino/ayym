@@ -22,7 +22,7 @@ export default function MonthlyBudgetAvailable({ budget }) {
       const totalBudget = budget.map((b) => b.monthlyBudget);
       let totalExpenses;
       if (budget) {
-        totalExpenses = 10000000; // Replace with the actual total expenses
+        totalExpenses = 10000; // Replace with the actual total expenses
       } else {
         totalExpenses = 0;
       }

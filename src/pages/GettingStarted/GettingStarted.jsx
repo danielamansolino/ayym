@@ -149,7 +149,7 @@ export default function GettingStarted({ user }) {
       : null}
 
       { showBottomButton ? 
-      <MainButton color='test' text={bottomButtonText} click={handleBack} />
+        <MainButton color='test' text={bottomButtonText} click={handleAdd} />
       : null}
 
     </div>
