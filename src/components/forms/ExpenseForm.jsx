@@ -5,7 +5,7 @@ import * as expensesApi from '../../utilities/api/expenses-api';
 import SelectExpense from '../../components/forms/SelectExpense'
 import MainButton from '../../components/buttons/MainButton';
 import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 
 // Style Imports
@@ -24,7 +24,7 @@ function formatDate(date) {
   return new Date(date).toLocaleDateString(undefined, options);
 }
 
-export default function ExpenseForm({ user }) {
+export default function ExpenseForm({ user, hideForm }) {
   const [show, setShow] = useState(true);
   const [activeSelection, setActiveSelection] = useState(null);
   const [formData, setFormData] = useState({
@@ -47,6 +47,7 @@ export default function ExpenseForm({ user }) {
       });
       setShow(false);
     }
+    if (!hideForm) {setShow(false)};
   }, [activeSelection, setShow]);
 
   const handleChange = (e) => {
