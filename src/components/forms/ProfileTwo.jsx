@@ -50,7 +50,7 @@ export default function ProfileTwo({ user, step, setStep }) {
   };
   
   return (
-    <Container>
+    <div className='form-container'>
     <Form onSubmit={handleSubmit}>
 
       <FormGroup>
@@ -76,6 +76,6 @@ export default function ProfileTwo({ user, step, setStep }) {
       
       <MainButton text={'Continue'} click={handleSubmit}></MainButton>
     </Form>
-  </Container>
+  </div>
   )
 }

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import * as ProfilesAPI from '../../utilities/api/profiles-api';
 
 import MainButton from '../buttons/MainButton';
+import Logo from '../Logo/Logo';
 
 // Style Imports
 import {
@@ -60,7 +61,7 @@ export default function ProfileOne({ user, step, setStep }) {
   };
   
   return (
-    <Container>
+    <div className='form-container'>
     <Form onSubmit={handleSubmit}>
 
       <FormGroup>
@@ -109,6 +110,6 @@ export default function ProfileOne({ user, step, setStep }) {
       
       <MainButton text={'Continue'} click={handleSubmit}></MainButton>
     </Form>
-  </Container>
+  </div>
   )
 }

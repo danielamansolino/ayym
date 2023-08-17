@@ -50,7 +50,8 @@ export default function IncomeForm({ user, step, setStep }) {
   };
   
   return (
-    <Container>
+    <div className='form-container'>
+    <h4>Add your monthly income.</h4>
     <Form onSubmit={handleSubmit}>
 
       <FormGroup>
@@ -101,6 +102,6 @@ export default function IncomeForm({ user, step, setStep }) {
       
       <MainButton text={'Continue'} click={handleSubmit}></MainButton>
     </Form>
-  </Container>
+  </div>
   )
 }
