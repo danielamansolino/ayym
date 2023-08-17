@@ -10,8 +10,11 @@ import About from '../About/About';
 import GettingStarted from '../GettingStarted/GettingStarted';
 import SpendingCategories from '../../components/SpendingCategories/SpendingCategories'
 import MobileNavBar from '../../components/MobileNavBar/MobileNavBar'
-import ExpensePage from '../ExpensePage/ExpensePage';
+import ExpensePage from '../ExpensePage/ExpensePage'
 import ExpenseForm from '../../components/forms/ExpenseForm';
+
+
+import BudgetPage from '../BudgetPage/BudgetPage';
 
 
 import Settings from '../Settings/Settings';
@@ -47,6 +50,7 @@ export default function App() {
               <Route path="/categories" element={<SpendingCategories user={user} />} />
               <Route path="/new" element={<ExpenseForm user={user} />} />
               <Route path="/settings" element={<Settings user={user} />} />
+              <Route path="/budgetpage" element={<BudgetPage user={user}/>} />
 
               <Route path="/navbar" element={<MobileNavBar user={user} />} />
 
