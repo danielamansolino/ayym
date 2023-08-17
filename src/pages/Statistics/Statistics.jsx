@@ -24,12 +24,12 @@ export default function Statistics() {
   // Testing Values
   const [percentages, setPercentages] = useState([50, 75, 30, 60, 100]); // Example percentage values
   const categories = [
-    { name: "Bills", image: 'https://imgur.com/FO0Thjc.png' },
-    { name: "Personal", image: 'https://imgur.com/UZqm54M.png' },
-    { name: "Transport", image: 'https://imgur.com/YDPbaJU.png' },
-    { name: "Housing", image: 'https://imgur.com/66UeV0x.png' },
-    { name: "Food", image: 'https://imgur.com/hbfzKv2.png' },
-    { name: "Other", image: 'https://imgur.com/YnkYjkb.png' },
+    { name: "Bills", image: 'https://imgur.com/e4G3zg3.png' },
+    { name: "Personal", image: 'https://imgur.com/R4L8RDS.png' },
+    { name: "Transport", image: 'https://imgur.com/PQAjrjm.png' },
+    { name: "Housing", image: 'https://imgur.com/jZvZNJQ.png' },
+    { name: "Food", image: 'https://imgur.com/fIhL1m0.png' },
+    { name: "Other", image: 'https://imgur.com/0p3voru.png' },
   ];
 
 
@@ -84,6 +84,26 @@ export default function Statistics() {
           </Col>
         ))}
       </Row>
+      <div className='StatsGraphics'>
+        <a href='https://imgur.com/rfqIHDf.png' target='_blank' rel='noopener noreferrer'>
+          <img src='https://imgur.com/rfqIHDf.png' alt='Bills' style={{ width: '20px', height: '20px' }} />
+        </a>
+        <a href='https://imgur.com/7rrjIJi.png' target='_blank' rel='noopener noreferrer'>
+          <img src='https://imgur.com/7rrjIJi.png' alt='Personal' style={{ width: '20px', height: '20px' }} />
+        </a>
+        <a href='https://imgur.com/kQenjsn.png' target='_blank' rel='noopener noreferrer'>
+          <img src='https://imgur.com/kQenjsn.png' alt='Transport' style={{ width: '20px', height: '20px' }} />
+        </a>
+        <a href='https://imgur.com/qDja9yx.png' target='_blank' rel='noopener noreferrer'>
+          <img src='https://imgur.com/qDja9yx.png' alt='Housing' style={{ width: '20px', height: '20px' }} />
+        </a>  
+        <a href='https://imgur.com/ZtqIMFS.png' target='_blank' rel='noopener noreferrer'>
+          <img src='https://imgur.com/ZtqIMFS.png' alt='Food' style={{ width: '20px', height: '20px' }} />
+        </a>
+        <a href='https://imgur.com/6u6Mxs1.png' target='_blank' rel='noopener noreferrer'>
+          <img src='https://imgur.com/6u6Mxs1.png' alt='Other' style={{ width: '20px', height: '20px' }} />
+        </a>
+      </div>
       <div>
         <div className='StatsGraphicsKey'>
           <div className='StatsCircle' style={{ backgroundColor: 'var(--mint)' }}></div>
@@ -93,7 +113,6 @@ export default function Statistics() {
         </div>
       </div>
       </div>
-
       <div>
         <div className='StatsTable'>
         <div className='StatsTableTitle'>Total Spending - ADD NUMBER HERE</div>
@@ -102,7 +121,7 @@ export default function Statistics() {
               { categories.map((category, index) => 
                 
               <tr style={{ display:'flex', justifyContent:'space-between', margin:'0' }}>
-                <td className='StatsCardName'>{<img src={category.image} alt='icon' />} {category.name}</td>
+                <td className='StatsCardName'>{<img src={category.image} alt='icon' style={{ width: '40px', height: '40px' }} />} {category.name}</td>
                 <div className='StatsCardPercent'>
                   <td>50%</td>
                 </div>
