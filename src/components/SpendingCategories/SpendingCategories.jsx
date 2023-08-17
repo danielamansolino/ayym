@@ -93,7 +93,7 @@ const ExpenseCategories = () => {
           }}
         >
           <div className="category-image">
-            <img src="https://imgur.com/YnkYjkb.png" alt="Bills & Utilities" />
+            <img src="https://imgur.com/YnkYjkb.png" alt="Bills_&_Utilities" />
             <br/>
             <span>Bills & Utilities</span>
           </div>
@@ -274,7 +274,7 @@ const ExpenseCategories = () => {
           }}
         >
           <div className="category-image">
-            <img src="https://imgur.com/9GBfu1D.png" alt="Future Purchase" />
+            <img src="https://imgur.com/9GBfu1D.png" alt="Future_Purchase" />
             <br/>
             <span>Future Purchase</span>
           </div>
