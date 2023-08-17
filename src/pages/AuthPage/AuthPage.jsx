@@ -46,6 +46,7 @@
 // }
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import './AuthPage.css';
@@ -53,15 +54,18 @@ import './AuthPage.css';
 export default function AuthPage({ setUser }) {
   const [userPref, setUserPref] = useState('view');
   const [formType, setFormType] = useState('signup');
+  const navigate = useNavigate()
 
   function handleSignUp() {
     setUserPref('signup');
     setFormType('signup');
+    navigate('/start')
   }
 
   function handleSignIn() {
     setUserPref('login');
     setFormType('login');
+    navigate('/')
   }
 
   return (

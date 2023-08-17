@@ -9,7 +9,7 @@ router.get('/', profileCtrl.get);
 // POST /api/profiles (create a profile)
 router.post('/', profileCtrl.create);
 // PUT /api/profiles (update a profile)
-router.put('/:id', profileCtrl.update);
+router.put('/', profileCtrl.update);
 
 
 module.exports = router;

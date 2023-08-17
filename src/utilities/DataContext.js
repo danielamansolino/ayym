@@ -52,6 +52,8 @@ export const DataProvider = (props) => {
       value={{
         activeAccounts: activeAccounts || [],
         setActiveAccounts,
+        profile: activeProfile || null,
+        setActiveProfile,
       }}
     >
       {props.children}

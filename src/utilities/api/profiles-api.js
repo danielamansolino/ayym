@@ -6,7 +6,7 @@ export async function createProfile(profileData) {
 }
 
 export async function updateProfile(profileData) {
-  return sendRequest(BASE_URL, 'PUT', profileData);
+  return sendRequest(`${BASE_URL}`, 'PUT', profileData);
 }
 
 export async function getProfileForUser() {
