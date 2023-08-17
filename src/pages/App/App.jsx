@@ -13,6 +13,7 @@ import MobileNavBar from '../../components/MobileNavBar/MobileNavBar'
 import ExpensePage from '../ExpensePage/ExpensePage';
 
 import Settings from '../Settings/Settings';
+import Statistics from '../Statistics/Statistics';
 
 import {useLocation} from 'react-router-dom'
 
@@ -45,6 +46,7 @@ export default function App() {
               <Route path="/expense" element={<ExpensePage user={user} />} />
               <Route path="/settings" element={<Settings user={user} />} />
               <Route path="/navbar" element={<MobileNavBar user={user} />} />
+              <Route path="/statistics" element={<Statistics user={user} />} />
             </Routes>
           </>
           :

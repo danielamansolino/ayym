@@ -1,21 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const categorySchema = new Schema({
-  type: {
-    type: String,
-    enum: ['Transportation', 'Bills', 'Services', 'Cash', 'Check', 'Clothing', 'CreditCard'],
-    required: true,
-  },
-  subCategory: String,
-  amount: { type: Number, required: true },
-});
-
 const expenseSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: 'User', required: true }, // Reference to the user who created the expense
   category: {
       type: String,
-      enum: ['Transportation', 'Bills', 'Services', 'Cash', 'Check', 'Clothing', 'CreditCard'],
+      enum: ["Bills", "Personal", "Transport",  "Housing","Food",
+      "Other"],
       required: true,
     }, // Category of the expense (e.g., groceries, utilities, rent)
   amount: { type: Number, required: true }, // Amount of the expense

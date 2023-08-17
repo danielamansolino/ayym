@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 // Styling Import
 import './ExpensePage.css';
 
@@ -7,14 +8,13 @@ import ExpenseCard from '../../components/cards/ExpenseCard/ExpenseCard';
 import MonthlyBudget from '../../components/cards/MonthlyBudget/MonthlyBudget';
 import MonthlyBudgetAvailable from '../../components/cards/MonthlyBudget/MonthlyBudgetAvailable';
 
-
 //API for Expenses
 import { listExpenses } from '../../utilities/api/expenses-api';
 
 
 
 
-export default function ExpensePage({ budget, expense}) {
+export default function ExpensePage({ budget, expense, user}) {
 
     // Create an array of years from 2000 to 2023
   const years = Array.from({ length: 2024 - 2000 }, (_, index) => 2000 + index);

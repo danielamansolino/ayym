@@ -54,6 +54,7 @@ export const DataProvider = (props) => {
         setActiveAccounts,
         profile: activeProfile || null,
         setActiveProfile,
+        fetchData, 
       }}
     >
       {props.children}
