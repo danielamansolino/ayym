@@ -11,6 +11,8 @@ import {
   Card,
   CardTitle,
   CardBody,
+  Table,
+  Button
 } from 'reactstrap';
 
 export default function BudgetPage({ user }) {
@@ -21,17 +23,21 @@ export default function BudgetPage({ user }) {
   useEffect(() => {
     fetchBudget();
     fetchIncome();
-    calculateTotalIncome();
-  }, []);
+  }, [totalIncome]);
 
-  const calculateTotalIncome = () => {
+  const calculateTotalIncome = async () => {
     let total = 0;
-    income.forEach((income) => {
-      total += income.amount;
-    });
-    setTotalIncome(total);
+    try {
+
+      income.forEach((income) => {
+        total += income.amount;
+      });
+      setTotalIncome(total);
+    } catch (error) {
+      console.error('Error calculating total income:', error);
+    }
   }
-  console.log(totalIncome)
+  console.log(income)
 
   const fetchIncome = async () => {
     try {
@@ -40,6 +46,7 @@ export default function BudgetPage({ user }) {
     } catch (error) {
       console.error('Error fetching income:', error);
     }
+    calculateTotalIncome();
   }
 
   const fetchBudget = async () => {
@@ -54,26 +61,77 @@ export default function BudgetPage({ user }) {
   console.log(budget)
 
   return (
-    <div>
+    <div className='BudgetPageContainer'>
+      <h4>Budget</h4>
       {/* <BudgetForm user={user} /> */}
-      <IncomeForm user={user} />
-    <div>Budget Page</div>
+      {/* <IncomeForm user={user} /> */}
+    <div>
+      ADD DATE DROPDOWN LIKE EXPENSE AND SOME SORT OF MONEY AVAILABLE?
+    </div>
     <MainButton text='Add New Budget' color={'var(--mint)'} />
-    <Card>
-      <CardBody>
-        <div>Estimated Income</div>
-        <div>{totalIncome}</div>
-      </CardBody>
+    <Card className='BudgetCard'>
+    <Table borderless className='BudgetTable' >
+      <thead>
+        <tr>
+          <th colSpan="2">
+            Estimated Income
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {income ? (
+          income.map((incomeItem) => (
+            <tr key={incomeItem._id}>
+              {/* <td>{incomeItem.type}</td>
+              <td>{incomeItem.amount}</td> */}
+              <div className='BudgetSpread'>
+                <div>{incomeItem.type}</div>
+                <div>{incomeItem.amount}</div>
+              </div>
+            </tr>
+          ))
+        ) : (
+          <tr>
+            <td colSpan="2">No income data available.</td>
+          </tr>
+        )}
+      </tbody>
+    </Table>
     </Card>
     { budget ? 
       budget.map((budget) => (
-        <Card key={budget._id}>
-          <CardBody>
-            <div className='BudgetCard'>
-              {budget.category} Budget
-              {budget.monthlyBudget}
-            </div>
-          </CardBody>
+        <Card  className='BudgetCard' key={budget._id}>
+          <Table borderless>
+            <thead>
+              <tr>
+                <th colSpan="2">
+                  {budget.category} Budget
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+              <div className='BudgetSpread'>
+                <div>{budget.category}</div>
+                <div>${budget.monthlyBudget}</div>
+              </div>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr>
+              <div className='BudgetSpread'>
+              <Button style={{
+                backgroundColor: 'white',
+                border: 'none',
+                color: 'var(--mint)',
+                fontSize: '.75rem',
+                padding: '0',
+                margin: '0',
+              }}>Edit Budget</Button>
+              </div>
+              </tr>
+            </tbody>
+          </Table>
         </Card>
       ))
       : null }
