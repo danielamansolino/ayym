@@ -145,11 +145,11 @@ export default function GettingStarted({ user }) {
         : null} */}
 
       { showTopButton ? 
-        <MainButton color={'success'} text={topButtonText} click={handleAdd} />
+        <MainButton color={'var(--mint)'} text={topButtonText} click={handleAdd} />
       : null}
 
       { showBottomButton ? 
-      <MainButton color='danger' text={bottomButtonText} click={handleBack} />
+      <MainButton color='test' text={bottomButtonText} click={handleBack} />
       : null}
 
     </div>

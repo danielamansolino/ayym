@@ -74,7 +74,7 @@ export default function ProfileTwo({ user, step, setStep }) {
       </FormGroup>
 
       
-      <MainButton text={'Continue'} click={handleSubmit}></MainButton>
+      <MainButton color={'var(--mint)'} text={'Continue'} click={handleSubmit}></MainButton>
     </Form>
   </div>
   )
