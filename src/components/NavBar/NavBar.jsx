@@ -42,18 +42,18 @@ export default function NavBar({ user, setUser }) {
     <div>
     <Navbar expand="md" >
       <NavbarBrand href="/">Ayym</NavbarBrand>
-      <NavbarToggler onClick={toggle} />
-      <Collapse isOpen={isOpen} navbar>
-        <Nav className="me-auto" navbar>
+      {/* <NavbarToggler onClick={toggle} /> */}
+      {/* <Collapse isOpen={isOpen} navbar> */}
+        <Nav className="ml-auto" navbar>
           <NavItem>
             <NavLink href="/components/"><Link to="" onClick={handleLogOut}>Log Out</Link></NavLink>
           </NavItem>
-          <NavItem>
+          {/* <NavItem>
             <NavLink href="https://github.com/reactstrap/reactstrap">
               GitHub
             </NavLink>
-          </NavItem>
-          <UncontrolledDropdown nav inNavbar>
+          </NavItem> */}
+          {/* <UncontrolledDropdown nav inNavbar>
             <DropdownToggle nav caret>
               Options
             </DropdownToggle>
@@ -63,10 +63,10 @@ export default function NavBar({ user, setUser }) {
               <DropdownItem divider />
               <DropdownItem>Reset</DropdownItem>
             </DropdownMenu>
-          </UncontrolledDropdown>
+          </UncontrolledDropdown> */}
         </Nav>
-        <NavbarText>Simple Text</NavbarText>
-      </Collapse>
+        {/* <NavbarText>Simple Text</NavbarText> */}
+      {/* </Collapse> */}
     </Navbar>
     </div>
   );
