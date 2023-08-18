@@ -10,12 +10,13 @@ import {
   ListGroupItem,
 } from 'reactstrap';
 
-export default function Settings() {
+export default function Settings({ user }) {
   const { profile, fetchData } = useContext(DataContext);
 
   useEffect(() => {
-    fetchData(); // Fetch user and profile data when the component mounts
   }, []);
+
+  console.log(profile)
 
   return (
     <div className="SettingsContainer">
@@ -26,6 +27,8 @@ export default function Settings() {
         </div>
         <div className="SettingsInfo">
           <div>
+            {user.email}
+            <br />
             {profile ? `${profile.firstName} ${profile.lastName}` : "Loading..."}
           </div>
         </div>
