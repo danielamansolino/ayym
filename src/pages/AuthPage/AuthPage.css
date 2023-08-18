@@ -15,7 +15,6 @@
     display: flex;
     flex-direction: column;
     height: auto;
-    max-width: 1024px;
 }
 
 .auth-page-container .x {
@@ -23,7 +22,6 @@
     color: white;
     border: none;
     width: 100%;
-
 }
 
 .auth-page-container .x:hover {
@@ -47,4 +45,10 @@
 
 .form-container label {
     font-size: .75rem;
+}
+
+.test-container {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
 }
