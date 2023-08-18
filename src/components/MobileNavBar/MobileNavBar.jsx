@@ -43,7 +43,7 @@ import './MobileNavBar.css'
 const MobileNavBar = () => {
   const navigationLinks = [
     { imageSource: 'https://imgur.com/zArMutS.png', link: '/' },
-    { imageSource: 'https://imgur.com/BCsVY0h.png', link: '/expense' },
+    { imageSource: 'https://imgur.com/BCsVY0h.png', link: '/budgetpage' },
     { imageSource: 'https://imgur.com/qnq098B.png', link: '/statistics' },
     { imageSource: 'https://imgur.com/DuXX0lP.png', link: '/settings' },
   ];

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import * as BudgetsAPI from './../../utilities/api/budgets-api'
-import { useParams} from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+
 
 import MainButton from './../../components/buttons/MainButton';
 
@@ -16,6 +17,7 @@ import {
 export default function BudgetForm({ user, step, setStep }) {
   const categoryOptions = ['Transportation', 'Bills', 'Services', 'Cash', 'Check', 'Clothing', 'CreditCard'];
   const { budgetId } = useParams();
+  const navigate = useNavigate();
 
 
   const [formData, setFormData] = useState({
@@ -44,6 +46,7 @@ export default function BudgetForm({ user, step, setStep }) {
     if (step <= 7) {
       setStep(step + 1)
     }
+    navigate('/budgetpage')
   };
   
   return (

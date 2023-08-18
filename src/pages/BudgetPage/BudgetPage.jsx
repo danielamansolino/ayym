@@ -5,6 +5,8 @@ import MainButton from '../../components/buttons/MainButton';
 import IncomeForm from '../../components/forms/IncomeForm';
 import * as BudgetsAPI from '../../utilities/api/budgets-api';
 import * as IncomesAPI from '../../utilities/api/incomes-api';
+import BudgetCard from '../../components/cards/BudgetCard/BudgetCard';
+import { useNavigate } from 'react-router-dom';
 
 import './BudgetPage.css';
 import {
@@ -17,12 +19,13 @@ import {
 } from 'reactstrap';
 
 export default function BudgetPage({ user }) {
-  const [budget, setBudget] = useState(null);
+  const [budgets, setBudgets] = useState(null);
   const [income, setIncome] = useState(null);
   const [totalIncome, setTotalIncome] = useState(0);
   const [showEdit, setShowEdit] = useState(false);
   const [editableBudgetId, setEditableBudgetId] = useState(null);
   const [editableBudgetValue, setEditableBudgetValue] = useState('');
+  const navigate = useNavigate();
 
 
   useEffect(() => {
@@ -56,7 +59,7 @@ export default function BudgetPage({ user }) {
   const fetchBudget = async () => {
     try {
       const fetchedBudget = await BudgetsAPI.getBudget();
-      setBudget(fetchedBudget);
+      setBudgets(fetchedBudget);
     } catch (error) {
       console.error('Error fetching budget:', error);
     }
@@ -82,13 +85,17 @@ export default function BudgetPage({ user }) {
     setEditableBudgetValue('');
   }
 
+  const handleAdd = () => {
+    navigate('/budgetform')
+  }
+
   return (
     <div className='BudgetPageContainer'>
     <h4>Budget</h4>
     <div>
       ADD DATE DROPDOWN LIKE EXPENSE AND SOME SORT OF MONEY AVAILABLE?
     </div>
-    <MainButton text='Add New Budget' color={'var(--mint)'} />
+    <MainButton text='Add New Budget' color={'var(--mint)'} click={handleAdd}/>
     <Card className='BudgetCard'>
     <Table borderless className='BudgetTable' >
       <thead>
@@ -116,9 +123,10 @@ export default function BudgetPage({ user }) {
       </tbody>
     </Table>
     </Card>
-    {budget ? 
-        budget.map((budget) => (
+    {budgets ? 
+        budgets.map((budget) => (
           <Card className='BudgetCard' key={budget._id}>
+            {/* <BudgetCard budgets={budgets} /> */}
             <Table borderless>
               <thead>
                 <tr>

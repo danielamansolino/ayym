@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 
 // Components
 import MainButton from '../../components/buttons/MainButton';
@@ -21,6 +22,7 @@ export default function GettingStarted({ user }) {
   const [showForm, setShowForm] = useState(false);
   const [showBottomButton, setShowBottomButton] = useState(true);
   const [showTopButton, setShowTopButton] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (step === 0 || step < 0) {
@@ -91,6 +93,8 @@ export default function GettingStarted({ user }) {
       setTopButtonText('Continue');
       setBottomButtonText('')
 
+    } else if (step === null) {
+      navigate('/')
     }
   }, [step]);
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 // API Imports
 import * as expensesApi from '../../utilities/api/expenses-api';
-
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -30,8 +30,8 @@ export default function ExpenseForm({ user }) {
     date: '',
     description: '',
   });
+  const navigate = useNavigate();
 
-  console.log(user)
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -51,6 +51,7 @@ export default function ExpenseForm({ user }) {
     } catch (error) {
       console.error('There was an error at createExpense', error);
     }
+    navigate('/')
   };
   
   return (
