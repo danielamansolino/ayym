@@ -1,7 +1,16 @@
+.expensesTitle{
+    color: #000;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+
 .expenseButton{
     position: fixed;
-    top: 10px; /* Adjust this value to your preferred distance from the top */
-    right: 10px; /* Adjust this value to your preferred distance from the right */
+    top: 10px; 
+    right: 10px; 
     display: flex;
     width: 31px;
     height: 31px;
@@ -13,4 +22,39 @@
     background: var(--mint, #5FBB97);
     margin-top: 50px;
     margin-right: 10px;
+}
+
+.expenseButtonYellow{
+    position: fixed;
+    top: 10px; 
+    left: 10px; 
+    display: flex;
+    width: 31px;
+    height: 31px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    background: var(--gold, #F4B949);
+    margin-top: 50px;
+    margin-left: 10px;
+}
+
+.custom-select {
+    border: none;
+    color: var(--gray, #837A75);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 10px;
+  }
+
+.totalExpense{
+    color: #000;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
 }

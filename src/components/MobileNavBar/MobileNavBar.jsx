@@ -53,7 +53,7 @@ const MobileNavBar = () => {
       <div className="nav-bar-images">
         {navigationLinks.map((link, index) => (
           <a key={index} className="nav-bar-item" href={link.link}>
-            <img src={link.imageSource} alt={`Link ${index}`} className="nav-bar-image" />
+            <img src={link.imageSource} alt={`Link ${index}`} className="nav-bar-image" style={{ width: '45px', height: '60px' }} />
           </a>
         ))}
       </div>
