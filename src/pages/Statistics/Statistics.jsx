@@ -19,8 +19,10 @@ import {
 } from 'reactstrap';
 
 export default function Statistics() {
-  const [percentage, setPercentage] = useState(0)
-  const [budget, setBudget] = useState(null)
+  const [percentage, setPercentage] = useState(0);
+  const [budget, setBudget] = useState(null);
+
+
   // Testing Values
   const [percentages, setPercentages] = useState([50, 75, 30, 60, 100]); // Example percentage values
   const categories = [

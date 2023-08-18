@@ -26,6 +26,7 @@ export default function AuthPage({ setUser }) {
 
   return (
     <div className="auth-page-container">
+      <div className='test-container'>
       <div className="app-logo-container">
         {/* <a href="https://imgur.com/GUCAUR9.png" target="_blank" rel="noopener noreferrer">
           <img src="https://imgur.com/GUCAUR9.png" alt="Logo_Ayym" className="app-logo" />
@@ -81,7 +82,7 @@ export default function AuthPage({ setUser }) {
     
         </div>
       )}
-
+</div>
     </div>
   );
 }
