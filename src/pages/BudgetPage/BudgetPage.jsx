@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
 
 import BudgetForm from '../../components/forms/BudgetForm';
 import MainButton from '../../components/buttons/MainButton';
@@ -22,6 +21,9 @@ export default function BudgetPage({ user }) {
   const [income, setIncome] = useState(null);
   const [totalIncome, setTotalIncome] = useState(0);
   const [showEdit, setShowEdit] = useState(false);
+  const [editableBudgetId, setEditableBudgetId] = useState(null);
+  const [editableBudgetValue, setEditableBudgetValue] = useState('');
+
 
   useEffect(() => {
     fetchBudget();
@@ -60,19 +62,61 @@ export default function BudgetPage({ user }) {
     }
   }
 
-  const [editableBudgetId, setEditableBudgetId] = useState(null);
-  const [editableBudgetValue, setEditableBudgetValue] = useState('');
-
   const handleEdit = (budgetId) => {
     setEditableBudgetId(budgetId);
     setEditableBudgetValue('');
   }
 
+  const handleUpdate = async (e, budgetId) => {
+    console.log(budgetId)
+    console.log('here', editableBudgetValue)
+    try {
+      await BudgetsAPI.updateBudget(budgetId, {
+        monthlyBudget: editableBudgetValue,
+      });
+      fetchBudget();
+    } catch (error) {
+      console.error('Error updating budget:', error);
+    }
+    setEditableBudgetId(null);
+    setEditableBudgetValue('');
+  }
+
   return (
     <div className='BudgetPageContainer'>
-      <h4>Budget</h4>
-      {/* ... (other JSX) */}
-      {budget ? 
+    <h4>Budget</h4>
+    <div>
+      ADD DATE DROPDOWN LIKE EXPENSE AND SOME SORT OF MONEY AVAILABLE?
+    </div>
+    <MainButton text='Add New Budget' color={'var(--mint)'} />
+    <Card className='BudgetCard'>
+    <Table borderless className='BudgetTable' >
+      <thead>
+        <tr>
+          <th colSpan="2">
+            Estimated Income
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {income ? (
+          income.map((incomeItem) => (
+            <tr key={incomeItem._id}>
+              <div className='BudgetSpread'>
+                <div>{incomeItem.type}</div>
+                <div>{incomeItem.amount}</div>
+              </div>
+            </tr>
+          ))
+        ) : (
+          <tr>
+            <td colSpan="2">No income data available.</td>
+          </tr>
+        )}
+      </tbody>
+    </Table>
+    </Card>
+    {budget ? 
         budget.map((budget) => (
           <Card className='BudgetCard' key={budget._id}>
             <Table borderless>
@@ -88,13 +132,22 @@ export default function BudgetPage({ user }) {
                   <div className='BudgetSpread'>
                     <div>{budget.category}</div>
                     {editableBudgetId === budget._id ? (
+                      <>
                       <Input
-                        style={{ width: '100px', textAlign: 'right' }}
-                        placeholder={budget.monthlyBudget}
+                        style={{
+                          backgroundColor: 'white',
+                          width: '100px',
+                          textAlign: 'right',
+                        }}
                         type='number'
+                        placeholder={budget.monthlyBudget}
                         value={editableBudgetValue}
                         onChange={(e) => setEditableBudgetValue(e.target.value)}
-                      />
+                        />
+                        <Button
+                          onClick={(e) => handleUpdate(e, budget._id)}
+                        >Save</Button>
+                      </>
                     ) : (
                       <div>${budget.monthlyBudget}</div>
                     )}
@@ -125,5 +178,5 @@ export default function BudgetPage({ user }) {
         ))
         : null }
     </div>
-  );
+  )
 }
