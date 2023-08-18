@@ -11,13 +11,16 @@
 .icon{
     display: flex;
     margin-left: 20px;
-    margin-top: 10px;
+    margin-top: 12px;
 }
 
 .cardCategory{
     flex: 1;
     text-align: center;
     justify-content: center;
+    font-size: 18px;
+    margin-right: 45px;
+    font-weight: bold;
 }
 
 
@@ -25,4 +28,8 @@
     display: flex;
     justify-content: center;
     justify-content: space-between;
+}
+
+.expenseCardBody{
+    padding: 5px;
 }

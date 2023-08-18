@@ -39,12 +39,21 @@ export default function ExpenseCard({ budget, category, expenses }) {
       <Row>
         <Col>
           <Card className="horizontal-card">
-            <div className="icon">Icon</div>
-            <div className="cardHeading">
-              <h5 className="cardCategory">{category}</h5>
+            {/* <div className="icon">
+              <img src="/images/svg/expense_card_icon.png" alt="Expense Icon" style={{ width: '35px', height: '35px' }} />
             </div>
+            <div className="cardHeading">
+              <div className="cardCategory">{category}</div>
+            </div> */}
+            <div className="icon">
+              <img src="/images/svg/expense_card_icon.png" alt="Expense Icon" style={{ width: '35px', height: '35px' }} />
+              <div className="cardCategory">{category}</div>
+            </div>
+            {/* <div className="cardHeading">
+              <div className="cardCategory">{category}</div>
+            </div> */}
             {expenses.map((expense) => (
-              <CardBody key={expense._id}>
+              <CardBody class="expenseCardBody" key={expense._id}>
                 <Row>
                   <Col>
                     <div className="expenseAndAmount">
