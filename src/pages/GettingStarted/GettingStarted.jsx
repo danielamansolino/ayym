@@ -112,6 +112,7 @@ export default function GettingStarted({ user }) {
 
   return (
     <div className='GettingStartedContainer'>
+      <div className='StartedContent'>
 
       <div className='LogoContainer'>
         <Logo />
@@ -140,21 +141,22 @@ export default function GettingStarted({ user }) {
       
 
 
+      </div>
       {/* { step < 4 ? 
         <MainButton color={'danger'} text={topButtonText} click={handleAdd} />
-        : null} */}
+      : null} */}
 
       {/* { step < 4 ? 
         <MainButton color={'danger'} text={getTopButtonText(step)} click={handleAdd} />
-        : null} */}
+      : null} */}
 
       { showTopButton ? 
         <MainButton color={'var(--mint)'} text={topButtonText} click={handleAdd} />
-      : null}
+        : null}
 
       { showBottomButton ? 
         <MainButton color='test' text={bottomButtonText} click={handleAdd} />
-      : null}
+        : null}
 
     </div>
     </div>

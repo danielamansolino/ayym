@@ -28,7 +28,7 @@ export default function LoginForm({ setUser }) {
 
   return (
     <div>
-      <div className="form-container">
+      <div className="form-container sign-in-form">
         <form autoComplete="off" onSubmit={handleSubmit}>
           <FormGroup>
             <Label for="email">Email</Label>
@@ -38,7 +38,7 @@ export default function LoginForm({ setUser }) {
             <Label for="password">Password</Label>
             <Input type="password" name="password" id="password" value={credentials.password} onChange={handleChange} required />
           </FormGroup>
-          <Button className='x' type="submit">LOG IN</Button>
+          <Button stye={{maxWidth:'500px'}} className='x' type="submit">LOG IN</Button>
         </form>
       </div>
       <p className="error-message">&nbsp;{error}</p>

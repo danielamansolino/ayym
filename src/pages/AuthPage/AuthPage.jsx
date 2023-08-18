@@ -44,7 +44,7 @@ export default function AuthPage({ setUser }) {
           </a>
           <br />
           <br />
-          <Button onClick={handleSignUp} className="x" size="lg" block>Get Started</Button>
+          <Button style={{ maxWidth: '500px', textAlign:'center' }} onClick={handleSignUp} className="x" size="lg" block>Get Started</Button>
           <p>
             <br />
             Already have an account?{' '}

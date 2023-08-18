@@ -142,7 +142,15 @@ export default function ExpenseForm({ user }) {
       </FormGroup>
 
       
-      <Button variant="primary" type="submit">
+      <Button
+        style={{
+          margin:'3px',
+          width: '100%',
+          backgroundColor: 'var(--mint)',
+          color:'white',
+          maxWidth: '500px',
+        }}
+      variant="primary" type="submit">
         Save
       </Button>
     </Form>
