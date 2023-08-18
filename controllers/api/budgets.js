@@ -19,9 +19,11 @@ async function index(req, res) {
 async function update(req, res) {
   console.log('Budget update route hit', req.body)
   try {
-    const budget = await Budget.findById(req.params.id);
-    budget.set(req.body);
-    budget.save();
+    const budget = await Budget.findByIdAndUpdate(
+      req.params.id, // Document _id
+      req.body, // Update data
+      { new: true } // Return the updated document
+    );
     res.status(200).json(budget);
   } catch (err) {
     res.status(500).json(err);

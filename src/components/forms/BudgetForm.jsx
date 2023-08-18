@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import * as BudgetsAPI from './../../utilities/api/budgets-api'
+import { useParams} from 'react-router-dom';
 
 import MainButton from './../../components/buttons/MainButton';
 
@@ -14,6 +15,7 @@ import {
 
 export default function BudgetForm({ user, step, setStep }) {
   const categoryOptions = ['Transportation', 'Bills', 'Services', 'Cash', 'Check', 'Clothing', 'CreditCard'];
+  const { budgetId } = useParams();
 
 
   const [formData, setFormData] = useState({

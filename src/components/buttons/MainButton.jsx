@@ -14,6 +14,7 @@ export default function MainButton({ color, text, click }) {
           backgroundColor: color === 'var(--mint)' ? color : 'white',
           color: color === 'var(--mint)' ? 'white' : 'var(--mint)',
           border: color === 'var(--mint)' ? 'none' : '1px solid var(--mint)',
+          maxWidth: '500px'
         }}
         onClick={click}>
         {text ? text : 'Continue'}
