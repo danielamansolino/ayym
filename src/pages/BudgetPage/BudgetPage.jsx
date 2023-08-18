@@ -27,6 +27,30 @@ export default function BudgetPage({ user }) {
   const [editableBudgetValue, setEditableBudgetValue] = useState('');
   const navigate = useNavigate();
 
+  //   const [hideForm, setHideForm] = useState(false);
+  // Create an array of years from 2000 to 2023
+  const years = Array.from({ length: 2024 - 2000 }, (_, index) => 2000 + index);
+
+  // Created an array of names
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  // Initialize state for selected year and month
+  const [selectedYear, setSelectedYear] = useState(years[0]);
+  const [selectedMonth, setSelectedMonth] = useState(0);
+
 
   useEffect(() => {
     fetchBudget();
@@ -91,11 +115,32 @@ export default function BudgetPage({ user }) {
 
   return (
     <div className='BudgetPageContainer'>
-    <h4>Budget</h4>
+    <h4 className="budgetTitle">Budget</h4>
+    {/* Select for Filter by Months */}
     <div>
-      ADD DATE DROPDOWN LIKE EXPENSE AND SOME SORT OF MONEY AVAILABLE?
-    </div>
-    <MainButton text='Add New Budget' color={'var(--mint)'} click={handleAdd}/>
+        <select
+          id="month"
+          value={`${selectedYear}-${selectedMonth + 1}`}
+          onChange={(e) => {
+            const [year, month] = e.target.value.split("-");
+            setSelectedYear(Number(year));
+            setSelectedMonth(Number(month) - 1);
+          }}
+          className="custom-select" // Add a class name for styling
+        >
+          {years.map((year) =>
+            monthNames.map((monthName, index) => (
+              <option
+                key={`${year}-${index + 1}`}
+                value={`${year}-${index + 1}`}
+              >
+                {monthName} {year}
+              </option>
+            ))
+          )}
+        </select>
+      </div>
+    <MainButton style={{ padding: '10px' }} className="mainButtonBudget"  text='Add New Budget' color={'var(--mint)'} click={handleAdd}/>
     <Card className='BudgetCard'>
     <Table borderless className='BudgetTable' >
       <thead>
@@ -110,8 +155,10 @@ export default function BudgetPage({ user }) {
           income.map((incomeItem) => (
             <tr key={incomeItem._id}>
               <div className='BudgetSpread'>
+                <div className='centered-row'>
                 <div>{incomeItem.type}</div>
-                <div>{incomeItem.amount}</div>
+                <div className='centered-row'>{incomeItem.amount}</div>
+                </div>
               </div>
             </tr>
           ))
