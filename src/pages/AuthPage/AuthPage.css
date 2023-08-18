@@ -23,6 +23,7 @@
     color: white;
     border: none;
     width: 100%;
+
 }
 
 .auth-page-container .x:hover {
@@ -41,9 +42,9 @@
 
 .form-container {
     width: 100%;
+    max-width: 500px;
 }
 
 .form-container label {
     font-size: .75rem;
 }
-
