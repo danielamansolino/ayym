@@ -1,0 +1,54 @@
+.app-image, .app-logo {
+    max-width: 250px; 
+    height: auto; 
+}
+
+.app-logo {
+    margin-bottom: -20px;
+}
+
+.clickable-text {
+    color: #5FBB97;
+}
+
+.auth-page-container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+
+.auth-page-container .x {
+    background-color: #5FBB97;
+    color: white;
+    border: none;
+    width: 100%;
+}
+
+.auth-page-container .x:hover {
+    background-color: red;
+    color: white;
+}
+
+.auth-page-container h4 {
+    text-align: center;
+    font-size: 1rem;
+}
+.auth-page-container h5 {
+    text-align: center;
+    font-size: .75rem;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 500px;
+}
+
+.form-container label {
+    font-size: .75rem;
+}
+
+.test-container {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}

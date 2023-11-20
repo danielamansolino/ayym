@@ -18,12 +18,18 @@ app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'build')));
 
 // Middleware to verify token and assign user object of payload to req.user. Mount before
-// app.use(require('./config/checkToken'));
+app.use(require('./config/checkToken'));
 
 const port = process.env.PORT || 3001;
 
 // Put API routes here, before the "catch all" route
 app.use('/api/users', require('./routes/api/users'));
+app.use('/api/expenses', require('./routes/api/expenses'));
+app.use('/api/goals', require('./routes/api/goals'));
+app.use('/api/incomes', require('./routes/api/incomes'));
+app.use('/api/accounts', require('./routes/api/accounts'));
+app.use('/api/profiles', require('./routes/api/profiles'));
+app.use('/api/budgets', require('./routes/api/budgets'));
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX/API requests

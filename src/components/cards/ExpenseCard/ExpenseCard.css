@@ -1,0 +1,62 @@
+.ExpenseCardContainer {
+    margin-bottom: 10px; 
+}
+
+.expenseCard{
+    border-radius: 10px;
+    border: 0.5px solid var(--gray, #837A75);
+    background: #FFF;
+    box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.35);
+}
+
+.cardHeading{
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+}
+
+.icon{
+    display: flex;
+    margin-left: 20px;
+    margin-top: 12px;
+}
+
+.cardCategory{
+    flex: 1;
+    text-align: center;
+    justify-content: center;
+    font-size: 18px;
+    margin-right: 45px;
+    font-weight: bold;
+    color: var(--black, #101010);
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+
+.expenseAndAmount{
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+}
+
+.expenseCardBody{
+    padding: -1px;
+}
+
+.expenseDescription{
+    color: var(--gray, #837A75);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.expenseAmount{
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}

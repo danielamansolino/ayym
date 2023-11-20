@@ -3,11 +3,17 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
 import App from './pages/App/App';
+import 'bootstrap/dist/css/bootstrap.css';
+import { DataProvider } from './utilities/DataContext'; // This is our useContext hook
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Router><App /></Router>
+    <DataProvider>
+      <Router>
+        <App />
+      </Router>
+    </DataProvider>
   </React.StrictMode>
 );
 

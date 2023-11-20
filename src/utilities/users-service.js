@@ -3,7 +3,7 @@
 // Service modules often depend upon API modules
 // for making AJAX requests to the server.
 
-import * as usersAPI from './users-api';
+import * as usersAPI from './api/users-api';
 
 export async function signUp(userData) {
   const token = await usersAPI.signUp(userData);
@@ -36,6 +36,7 @@ export function getToken() {
   //   localStorage.removeItem('token');
   //   return null;
   // }
+  // console.log(token)
   return token;
 }
 

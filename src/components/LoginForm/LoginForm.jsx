@@ -1,5 +1,8 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { FormGroup, Label, Input, Button } from 'reactstrap';
 import * as usersService from '../../utilities/users-service';
+
+import '../../pages/AuthPage/AuthPage.css'
 
 export default function LoginForm({ setUser }) {
   const [credentials, setCredentials] = useState({
@@ -14,12 +17,8 @@ export default function LoginForm({ setUser }) {
   }
 
   async function handleSubmit(evt) {
-    // Prevent form from being submitted to the server
     evt.preventDefault();
     try {
-      // The promise returned by the signUp service method 
-      // will resolve to the user object included in the
-      // payload of the JSON Web Token (JWT)
       const user = await usersService.login(credentials);
       setUser(user);
     } catch {
@@ -29,13 +28,17 @@ export default function LoginForm({ setUser }) {
 
   return (
     <div>
-      <div className="form-container">
+      <div className="form-container sign-in-form">
         <form autoComplete="off" onSubmit={handleSubmit}>
-          <label>Email</label>
-          <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
-          <label>Password</label>
-          <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
-          <button type="submit">LOG IN</button>
+          <FormGroup>
+            <Label for="email">Email</Label>
+            <Input type="text" name="email" id="email" value={credentials.email} onChange={handleChange} required />
+          </FormGroup>
+          <FormGroup>
+            <Label for="password">Password</Label>
+            <Input type="password" name="password" id="password" value={credentials.password} onChange={handleChange} required />
+          </FormGroup>
+          <Button stye={{maxWidth:'500px'}} className='x' type="submit">LOG IN</Button>
         </form>
       </div>
       <p className="error-message">&nbsp;{error}</p>
